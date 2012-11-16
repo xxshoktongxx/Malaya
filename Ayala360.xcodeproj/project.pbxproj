@@ -1,0 +1,492 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E7272F6C1655FC61000D841C /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E7272F6B1655FC61000D841C /* libsqlite3.0.dylib */; };
+		E7272F701655FCCD000D841C /* SqlManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E7272F6F1655FCCD000D841C /* SqlManager.m */; };
+		E7272F731655FCFF000D841C /* AppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E7272F721655FCFF000D841C /* AppManager.m */; };
+		E7868218165357C8009A93DB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7868217165357C8009A93DB /* UIKit.framework */; };
+		E786821A165357C8009A93DB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7868219165357C8009A93DB /* Foundation.framework */; };
+		E786821C165357C8009A93DB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E786821B165357C8009A93DB /* CoreGraphics.framework */; };
+		E7868222165357C8009A93DB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E7868220165357C8009A93DB /* InfoPlist.strings */; };
+		E7868224165357C8009A93DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E7868223165357C8009A93DB /* main.m */; };
+		E7868228165357C8009A93DB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E7868227165357C8009A93DB /* AppDelegate.m */; };
+		E786822A165357C8009A93DB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E7868229165357C8009A93DB /* Default.png */; };
+		E786822C165357C8009A93DB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E786822B165357C8009A93DB /* Default@2x.png */; };
+		E786822E165357C8009A93DB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E786822D165357C8009A93DB /* Default-568h@2x.png */; };
+		E786824416535A0A009A93DB /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E786824216535A0A009A93DB /* RootViewController.m */; };
+		E786824516535A0A009A93DB /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E786824316535A0A009A93DB /* RootViewController.xib */; };
+		E786824916535AFF009A93DB /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E786824716535AFF009A93DB /* MapViewController.m */; };
+		E786824A16535AFF009A93DB /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E786824816535AFF009A93DB /* MapViewController.xib */; };
+		E786824D16535B41009A93DB /* Mall.m in Sources */ = {isa = PBXBuildFile; fileRef = E786824C16535B41009A93DB /* Mall.m */; };
+		E786825016535B6E009A93DB /* Map.m in Sources */ = {isa = PBXBuildFile; fileRef = E786824F16535B6E009A93DB /* Map.m */; };
+		E7868254165367D3009A93DB /* Node.m in Sources */ = {isa = PBXBuildFile; fileRef = E7868253165367D3009A93DB /* Node.m */; };
+		E786825A16536D5C009A93DB /* AyalaCebuData.plist in Resources */ = {isa = PBXBuildFile; fileRef = E786825916536D5C009A93DB /* AyalaCebuData.plist */; };
+		E786826716538B22009A93DB /* PlistHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E786826616538B22009A93DB /* PlistHelper.m */; };
+		E7868274165394A5009A93DB /* Edge.m in Sources */ = {isa = PBXBuildFile; fileRef = E7868273165394A4009A93DB /* Edge.m */; };
+		E786827E16539AE1009A93DB /* AyalaCebuLvl1.m in Sources */ = {isa = PBXBuildFile; fileRef = E786827716539AE1009A93DB /* AyalaCebuLvl1.m */; };
+		E786827F16539AE1009A93DB /* Glorietta4GF.m in Sources */ = {isa = PBXBuildFile; fileRef = E786827916539AE1009A93DB /* Glorietta4GF.m */; };
+		E786828116539AE1009A93DB /* TrinomaM2.m in Sources */ = {isa = PBXBuildFile; fileRef = E786827D16539AE1009A93DB /* TrinomaM2.m */; };
+		E78682841653A6A3009A93DB /* MapViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E78682831653A6A2009A93DB /* MapViewManager.m */; };
+		E78682921654A381009A93DB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78682911654A37F009A93DB /* QuartzCore.framework */; };
+		E78682981654D8E9009A93DB /* arrow.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = E78682941654D8E9009A93DB /* arrow.jpeg */; };
+		E78682991654D8E9009A93DB /* Dijkstra.m in Sources */ = {isa = PBXBuildFile; fileRef = E78682961654D8E9009A93DB /* Dijkstra.m */; };
+		E786829A1654D8E9009A93DB /* seemless.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = E78682971654D8E9009A93DB /* seemless.jpeg */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E7272F6B1655FC61000D841C /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		E7272F6E1655FCCD000D841C /* SqlManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqlManager.h; sourceTree = "<group>"; };
+		E7272F6F1655FCCD000D841C /* SqlManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SqlManager.m; sourceTree = "<group>"; };
+		E7272F711655FCFF000D841C /* AppManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppManager.h; sourceTree = "<group>"; };
+		E7272F721655FCFF000D841C /* AppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppManager.m; sourceTree = "<group>"; };
+		E7868213165357C8009A93DB /* Ayala360.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ayala360.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7868217165357C8009A93DB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E7868219165357C8009A93DB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E786821B165357C8009A93DB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E786821F165357C8009A93DB /* Ayala360-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Ayala360-Info.plist"; sourceTree = "<group>"; };
+		E7868221165357C8009A93DB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E7868223165357C8009A93DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E7868225165357C8009A93DB /* Ayala360-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Ayala360-Prefix.pch"; sourceTree = "<group>"; };
+		E7868226165357C8009A93DB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E7868227165357C8009A93DB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E7868229165357C8009A93DB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		E786822B165357C8009A93DB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		E786822D165357C8009A93DB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		E786824116535A0A009A93DB /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		E786824216535A0A009A93DB /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		E786824316535A0A009A93DB /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
+		E786824616535AFF009A93DB /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		E786824716535AFF009A93DB /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		E786824816535AFF009A93DB /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		E786824B16535B41009A93DB /* Mall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mall.h; sourceTree = "<group>"; };
+		E786824C16535B41009A93DB /* Mall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mall.m; sourceTree = "<group>"; };
+		E786824E16535B6D009A93DB /* Map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Map.h; sourceTree = "<group>"; };
+		E786824F16535B6E009A93DB /* Map.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Map.m; sourceTree = "<group>"; };
+		E7868252165367D3009A93DB /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
+		E7868253165367D3009A93DB /* Node.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Node.m; sourceTree = "<group>"; };
+		E786825916536D5C009A93DB /* AyalaCebuData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AyalaCebuData.plist; sourceTree = "<group>"; };
+		E786826516538B22009A93DB /* PlistHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlistHelper.h; sourceTree = "<group>"; };
+		E786826616538B22009A93DB /* PlistHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlistHelper.m; sourceTree = "<group>"; };
+		E7868272165394A2009A93DB /* Edge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Edge.h; sourceTree = "<group>"; };
+		E7868273165394A4009A93DB /* Edge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Edge.m; sourceTree = "<group>"; };
+		E786827616539AE1009A93DB /* AyalaCebuLvl1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AyalaCebuLvl1.h; sourceTree = "<group>"; };
+		E786827716539AE1009A93DB /* AyalaCebuLvl1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AyalaCebuLvl1.m; sourceTree = "<group>"; };
+		E786827816539AE1009A93DB /* Glorietta4GF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Glorietta4GF.h; sourceTree = "<group>"; };
+		E786827916539AE1009A93DB /* Glorietta4GF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Glorietta4GF.m; sourceTree = "<group>"; };
+		E786827C16539AE1009A93DB /* TrinomaM2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrinomaM2.h; sourceTree = "<group>"; };
+		E786827D16539AE1009A93DB /* TrinomaM2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrinomaM2.m; sourceTree = "<group>"; };
+		E78682821653A6A1009A93DB /* MapViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewManager.h; sourceTree = "<group>"; };
+		E78682831653A6A2009A93DB /* MapViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewManager.m; sourceTree = "<group>"; };
+		E78682911654A37F009A93DB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		E78682941654D8E9009A93DB /* arrow.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = arrow.jpeg; sourceTree = "<group>"; };
+		E78682951654D8E9009A93DB /* Dijkstra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dijkstra.h; sourceTree = "<group>"; };
+		E78682961654D8E9009A93DB /* Dijkstra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dijkstra.m; sourceTree = "<group>"; };
+		E78682971654D8E9009A93DB /* seemless.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = seemless.jpeg; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E7868210165357C8009A93DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7272F6C1655FC61000D841C /* libsqlite3.0.dylib in Frameworks */,
+				E78682921654A381009A93DB /* QuartzCore.framework in Frameworks */,
+				E7868218165357C8009A93DB /* UIKit.framework in Frameworks */,
+				E786821A165357C8009A93DB /* Foundation.framework in Frameworks */,
+				E786821C165357C8009A93DB /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E7272F6D1655FCCD000D841C /* SQLManager */ = {
+			isa = PBXGroup;
+			children = (
+				E7272F6E1655FCCD000D841C /* SqlManager.h */,
+				E7272F6F1655FCCD000D841C /* SqlManager.m */,
+			);
+			path = SQLManager;
+			sourceTree = "<group>";
+		};
+		E7868208165357C8009A93DB = {
+			isa = PBXGroup;
+			children = (
+				E7272F6B1655FC61000D841C /* libsqlite3.0.dylib */,
+				E78682911654A37F009A93DB /* QuartzCore.framework */,
+				E786821D165357C8009A93DB /* Ayala360 */,
+				E7868216165357C8009A93DB /* Frameworks */,
+				E7868214165357C8009A93DB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E7868214165357C8009A93DB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E7868213165357C8009A93DB /* Ayala360.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E7868216165357C8009A93DB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E7868217165357C8009A93DB /* UIKit.framework */,
+				E7868219165357C8009A93DB /* Foundation.framework */,
+				E786821B165357C8009A93DB /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E786821D165357C8009A93DB /* Ayala360 */ = {
+			isa = PBXGroup;
+			children = (
+				E786823C1653589E009A93DB /* Resources */,
+				E786823B16535885009A93DB /* 3rdParty */,
+				E786823A16535874009A93DB /* Classes */,
+				E7868226165357C8009A93DB /* AppDelegate.h */,
+				E7868227165357C8009A93DB /* AppDelegate.m */,
+				E786824116535A0A009A93DB /* RootViewController.h */,
+				E786824216535A0A009A93DB /* RootViewController.m */,
+				E786824316535A0A009A93DB /* RootViewController.xib */,
+				E786821E165357C8009A93DB /* Supporting Files */,
+			);
+			path = Ayala360;
+			sourceTree = "<group>";
+		};
+		E786821E165357C8009A93DB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E786821F165357C8009A93DB /* Ayala360-Info.plist */,
+				E7868220165357C8009A93DB /* InfoPlist.strings */,
+				E7868223165357C8009A93DB /* main.m */,
+				E7868225165357C8009A93DB /* Ayala360-Prefix.pch */,
+				E7868229165357C8009A93DB /* Default.png */,
+				E786822B165357C8009A93DB /* Default@2x.png */,
+				E786822D165357C8009A93DB /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E786823A16535874009A93DB /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				E786824016535996009A93DB /* Entities */,
+				E786823E16535989009A93DB /* Managers */,
+				E786823D16535903009A93DB /* ViewControllers */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		E786823B16535885009A93DB /* 3rdParty */ = {
+			isa = PBXGroup;
+			children = (
+				E786826416538B22009A93DB /* PlistHelper */,
+			);
+			path = 3rdParty;
+			sourceTree = "<group>";
+		};
+		E786823C1653589E009A93DB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E78682931654D8E9009A93DB /* Dijkstra */,
+				E786825816536D19009A93DB /* PlistData */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E786823D16535903009A93DB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E786824616535AFF009A93DB /* MapViewController.h */,
+				E786824716535AFF009A93DB /* MapViewController.m */,
+				E786824816535AFF009A93DB /* MapViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E786823E16535989009A93DB /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				E7272F711655FCFF000D841C /* AppManager.h */,
+				E7272F721655FCFF000D841C /* AppManager.m */,
+				E7272F6D1655FCCD000D841C /* SQLManager */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		E786824016535996009A93DB /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				E7868251165367AD009A93DB /* Mall */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		E7868251165367AD009A93DB /* Mall */ = {
+			isa = PBXGroup;
+			children = (
+				E786827516539ADF009A93DB /* Maps */,
+				E786824B16535B41009A93DB /* Mall.h */,
+				E786824C16535B41009A93DB /* Mall.m */,
+				E786824E16535B6D009A93DB /* Map.h */,
+				E786824F16535B6E009A93DB /* Map.m */,
+				E7868252165367D3009A93DB /* Node.h */,
+				E7868253165367D3009A93DB /* Node.m */,
+				E7868272165394A2009A93DB /* Edge.h */,
+				E7868273165394A4009A93DB /* Edge.m */,
+			);
+			name = Mall;
+			sourceTree = "<group>";
+		};
+		E786825816536D19009A93DB /* PlistData */ = {
+			isa = PBXGroup;
+			children = (
+				E786825916536D5C009A93DB /* AyalaCebuData.plist */,
+			);
+			path = PlistData;
+			sourceTree = "<group>";
+		};
+		E786826416538B22009A93DB /* PlistHelper */ = {
+			isa = PBXGroup;
+			children = (
+				E786826516538B22009A93DB /* PlistHelper.h */,
+				E786826616538B22009A93DB /* PlistHelper.m */,
+			);
+			path = PlistHelper;
+			sourceTree = "<group>";
+		};
+		E786827516539ADF009A93DB /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				E78682821653A6A1009A93DB /* MapViewManager.h */,
+				E78682831653A6A2009A93DB /* MapViewManager.m */,
+				E786827616539AE1009A93DB /* AyalaCebuLvl1.h */,
+				E786827716539AE1009A93DB /* AyalaCebuLvl1.m */,
+				E786827816539AE1009A93DB /* Glorietta4GF.h */,
+				E786827916539AE1009A93DB /* Glorietta4GF.m */,
+				E786827C16539AE1009A93DB /* TrinomaM2.h */,
+				E786827D16539AE1009A93DB /* TrinomaM2.m */,
+			);
+			path = Maps;
+			sourceTree = "<group>";
+		};
+		E78682931654D8E9009A93DB /* Dijkstra */ = {
+			isa = PBXGroup;
+			children = (
+				E78682941654D8E9009A93DB /* arrow.jpeg */,
+				E78682951654D8E9009A93DB /* Dijkstra.h */,
+				E78682961654D8E9009A93DB /* Dijkstra.m */,
+				E78682971654D8E9009A93DB /* seemless.jpeg */,
+			);
+			path = Dijkstra;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E7868212165357C8009A93DB /* Ayala360 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E7868237165357C8009A93DB /* Build configuration list for PBXNativeTarget "Ayala360" */;
+			buildPhases = (
+				E786820F165357C8009A93DB /* Sources */,
+				E7868210165357C8009A93DB /* Frameworks */,
+				E7868211165357C8009A93DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Ayala360;
+			productName = Ayala360;
+			productReference = E7868213165357C8009A93DB /* Ayala360.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E786820A165357C8009A93DB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+			};
+			buildConfigurationList = E786820D165357C8009A93DB /* Build configuration list for PBXProject "Ayala360" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E7868208165357C8009A93DB;
+			productRefGroup = E7868214165357C8009A93DB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E7868212165357C8009A93DB /* Ayala360 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E7868211165357C8009A93DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7868222165357C8009A93DB /* InfoPlist.strings in Resources */,
+				E786822A165357C8009A93DB /* Default.png in Resources */,
+				E786822C165357C8009A93DB /* Default@2x.png in Resources */,
+				E786822E165357C8009A93DB /* Default-568h@2x.png in Resources */,
+				E786824516535A0A009A93DB /* RootViewController.xib in Resources */,
+				E786824A16535AFF009A93DB /* MapViewController.xib in Resources */,
+				E786825A16536D5C009A93DB /* AyalaCebuData.plist in Resources */,
+				E78682981654D8E9009A93DB /* arrow.jpeg in Resources */,
+				E786829A1654D8E9009A93DB /* seemless.jpeg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E786820F165357C8009A93DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7868224165357C8009A93DB /* main.m in Sources */,
+				E7868228165357C8009A93DB /* AppDelegate.m in Sources */,
+				E786824416535A0A009A93DB /* RootViewController.m in Sources */,
+				E786824916535AFF009A93DB /* MapViewController.m in Sources */,
+				E786824D16535B41009A93DB /* Mall.m in Sources */,
+				E786825016535B6E009A93DB /* Map.m in Sources */,
+				E7868254165367D3009A93DB /* Node.m in Sources */,
+				E786826716538B22009A93DB /* PlistHelper.m in Sources */,
+				E7868274165394A5009A93DB /* Edge.m in Sources */,
+				E786827E16539AE1009A93DB /* AyalaCebuLvl1.m in Sources */,
+				E786827F16539AE1009A93DB /* Glorietta4GF.m in Sources */,
+				E786828116539AE1009A93DB /* TrinomaM2.m in Sources */,
+				E78682841653A6A3009A93DB /* MapViewManager.m in Sources */,
+				E78682991654D8E9009A93DB /* Dijkstra.m in Sources */,
+				E7272F701655FCCD000D841C /* SqlManager.m in Sources */,
+				E7272F731655FCFF000D841C /* AppManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E7868220165357C8009A93DB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E7868221165357C8009A93DB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E7868235165357C8009A93DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E7868236165357C8009A93DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E7868238165357C8009A93DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Ayala360/Ayala360-Prefix.pch";
+				INFOPLIST_FILE = "Ayala360/Ayala360-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E7868239165357C8009A93DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Ayala360/Ayala360-Prefix.pch";
+				INFOPLIST_FILE = "Ayala360/Ayala360-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E786820D165357C8009A93DB /* Build configuration list for PBXProject "Ayala360" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7868235165357C8009A93DB /* Debug */,
+				E7868236165357C8009A93DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E7868237165357C8009A93DB /* Build configuration list for PBXNativeTarget "Ayala360" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7868238165357C8009A93DB /* Debug */,
+				E7868239165357C8009A93DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E786820A165357C8009A93DB /* Project object */;
+}

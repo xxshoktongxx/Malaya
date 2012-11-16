@@ -1,0 +1,1 @@
+////  Glorietta4GF//  converted by wavecoders.ca - Qwarkee application////  Created by Authur's Name on 12-10-5 at 10:18:07//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.//#import <UIKit/UIKit.h>@interface Glorietta4GF : UIView@end
