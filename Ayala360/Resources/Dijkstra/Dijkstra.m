@@ -10,15 +10,15 @@
 
 @implementation Dijkstra
 
-- (NSMutableArray *)findPathInGraph:(Map *)graph
+- (NSMutableArray *)findPathInGraph:(Mall *)graph
 {
     _graph = graph;
 
     //1. Set the cost of origin/start node to 0
     [_graph.startNode setCost:[NSNumber numberWithInt:0]];
     
-    NSMutableArray *_listNodes = [[NSMutableArray alloc]initWithArray:[_graph listNodes]];
-    NSMutableArray *_listEdges = [[NSMutableArray alloc]initWithArray:[_graph listEdges]];
+    NSMutableArray *_listNodes = [[NSMutableArray alloc]initWithArray:[_graph listNodeObjects]];
+    NSMutableArray *_listEdges = [[NSMutableArray alloc]initWithArray:[_graph listEdgeObjects]];
     //2. Get the node with the least cost value in the nodeList
     while(_listNodes.count > 0) {
         _listNodes =   [self sortArrayOfDictionary:_listNodes byKey:@"cost"];
@@ -36,7 +36,7 @@
                 //compute distance using formula
                 float newCost = sqrtf((coorEnd.x-coorStart.x)*(coorEnd.x-coorStart.x) +
                                         (coorEnd.y-coorStart.y)*(coorEnd.y-coorStart.y) +
-                                        (edge.end.z-edge.start.z)*(edge.end.z-edge.start.z));
+                                        (edge.end.zAxis-edge.start.zAxis)*(edge.end.zAxis-edge.start.zAxis));
                 newCost = ABS(newCost);
                 if(newCost < currentCost)
                 {
@@ -63,8 +63,7 @@
     return _listPath;
 }
 
-- (void)getPath:(Node *)node
-{
+- (void)getPath:(Node *)node{
     if (node) {
         [_listPath insertObject:node atIndex:0];
         if(node.parentNode != nil){

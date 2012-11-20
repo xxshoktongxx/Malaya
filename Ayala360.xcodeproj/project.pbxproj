@@ -10,6 +10,9 @@
 		E7272F6C1655FC61000D841C /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E7272F6B1655FC61000D841C /* libsqlite3.0.dylib */; };
 		E7272F701655FCCD000D841C /* SqlManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E7272F6F1655FCCD000D841C /* SqlManager.m */; };
 		E7272F731655FCFF000D841C /* AppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E7272F721655FCFF000D841C /* AppManager.m */; };
+		E7272F7D1656499B000D841C /* Glorietta.plist in Resources */ = {isa = PBXBuildFile; fileRef = E7272F7C1656499B000D841C /* Glorietta.plist */; };
+		E7272F8116565160000D841C /* MapRender.m in Sources */ = {isa = PBXBuildFile; fileRef = E7272F801656515E000D841C /* MapRender.m */; };
+		E73D5A6C165B399200834886 /* Monkey.svg in Resources */ = {isa = PBXBuildFile; fileRef = E73D5A6B165B399200834886 /* Monkey.svg */; };
 		E7868218165357C8009A93DB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7868217165357C8009A93DB /* UIKit.framework */; };
 		E786821A165357C8009A93DB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7868219165357C8009A93DB /* Foundation.framework */; };
 		E786821C165357C8009A93DB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E786821B165357C8009A93DB /* CoreGraphics.framework */; };
@@ -45,6 +48,10 @@
 		E7272F6F1655FCCD000D841C /* SqlManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SqlManager.m; sourceTree = "<group>"; };
 		E7272F711655FCFF000D841C /* AppManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppManager.h; sourceTree = "<group>"; };
 		E7272F721655FCFF000D841C /* AppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppManager.m; sourceTree = "<group>"; };
+		E7272F7C1656499B000D841C /* Glorietta.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Glorietta.plist; sourceTree = "<group>"; };
+		E7272F7F1656515E000D841C /* MapRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapRender.h; sourceTree = "<group>"; };
+		E7272F801656515E000D841C /* MapRender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapRender.m; sourceTree = "<group>"; };
+		E73D5A6B165B399200834886 /* Monkey.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Monkey.svg; sourceTree = "<group>"; };
 		E7868213165357C8009A93DB /* Ayala360.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ayala360.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7868217165357C8009A93DB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E7868219165357C8009A93DB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -113,6 +120,14 @@
 				E7272F6F1655FCCD000D841C /* SqlManager.m */,
 			);
 			path = SQLManager;
+			sourceTree = "<group>";
+		};
+		E73D5A69165B397C00834886 /* SVGFiles */ = {
+			isa = PBXGroup;
+			children = (
+				E73D5A6B165B399200834886 /* Monkey.svg */,
+			);
+			path = SVGFiles;
 			sourceTree = "<group>";
 		};
 		E7868208165357C8009A93DB = {
@@ -195,6 +210,7 @@
 		E786823C1653589E009A93DB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E73D5A69165B397C00834886 /* SVGFiles */,
 				E78682931654D8E9009A93DB /* Dijkstra */,
 				E786825816536D19009A93DB /* PlistData */,
 			);
@@ -249,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				E786825916536D5C009A93DB /* AyalaCebuData.plist */,
+				E7272F7C1656499B000D841C /* Glorietta.plist */,
 			);
 			path = PlistData;
 			sourceTree = "<group>";
@@ -273,6 +290,8 @@
 				E786827916539AE1009A93DB /* Glorietta4GF.m */,
 				E786827C16539AE1009A93DB /* TrinomaM2.h */,
 				E786827D16539AE1009A93DB /* TrinomaM2.m */,
+				E7272F7F1656515E000D841C /* MapRender.h */,
+				E7272F801656515E000D841C /* MapRender.m */,
 			);
 			path = Maps;
 			sourceTree = "<group>";
@@ -347,6 +366,8 @@
 				E786825A16536D5C009A93DB /* AyalaCebuData.plist in Resources */,
 				E78682981654D8E9009A93DB /* arrow.jpeg in Resources */,
 				E786829A1654D8E9009A93DB /* seemless.jpeg in Resources */,
+				E7272F7D1656499B000D841C /* Glorietta.plist in Resources */,
+				E73D5A6C165B399200834886 /* Monkey.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +394,7 @@
 				E78682991654D8E9009A93DB /* Dijkstra.m in Sources */,
 				E7272F701655FCCD000D841C /* SqlManager.m in Sources */,
 				E7272F731655FCFF000D841C /* AppManager.m in Sources */,
+				E7272F8116565160000D841C /* MapRender.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

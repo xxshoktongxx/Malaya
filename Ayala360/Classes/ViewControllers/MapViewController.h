@@ -7,20 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
-@class Mall;
-@class Map;
+#import "Mall.h"
 @class Dijkstra;
+@class SqlManager;
 
 @interface MapViewController : UIViewController{
-    int _mMapIndex;
-    Mall *_mMall;
-    Map *_mMap;
-    Dijkstra *_dijkstra;
     NSArray *_listRoute;
     UIImageView *_hero;
+    UIScrollView *_scrollView;
+    Mall *_mMall;                       /** Holds the instance of mall */
+    Map *_mMap;                         /** Holds the refence of active map in mall.listmap*/
+    
+    /** Managers */
+    Dijkstra *_dijkstra;
+    SqlManager *_sqlManager;
 }
-@property (nonatomic, retain) IBOutlet UIScrollView *scrollView;
-
+- (IBAction)getRoute:(id)sender;
 - (IBAction)previousMap:(id)sender;
 - (IBAction)nextMap:(id)sender;
 @end

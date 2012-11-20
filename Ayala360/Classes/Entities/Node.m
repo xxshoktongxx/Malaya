@@ -14,10 +14,12 @@
 {
     self = [super init];
     if (self) {
-        _nodeId = [NSNumber numberWithFloat:[[data objectForKey:@"id"]floatValue]];;
+        _nodeId = [NSNumber numberWithFloat:[[data objectForKey:@"nodeid"]intValue]];;
         _name = [data objectForKey:@"name"];
         _cost = [NSNumber numberWithFloat:MAXFLOAT];
         _coor = [data objectForKey:@"coor"];
+        _zAxis = [[data objectForKey:@"zaxis"] floatValue];
+        _mapLevel = [NSNumber numberWithFloat:[[data objectForKey:@"maplevel"] intValue]];
         _parentNode = nil;
     }
     return self;
@@ -32,6 +34,6 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"%@ |nodeId:%@ |name:%@ |cost:%@ |z:%.2f",[super description],_nodeId,_name,_cost,_z];
+    return [NSString stringWithFormat:@"%@ |id:%@ |name:%@ |cost:%@ |level:%@",[super description],_nodeId,_name,_cost,_mapLevel];
 }
 @end

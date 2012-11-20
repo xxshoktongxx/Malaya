@@ -7,18 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Map.h"
+#import "Mall.h"
 
 @interface Dijkstra : NSObject
 {
 
     NSMutableArray *_listPath;
-    Map *_graph;
+    Mall *_graph;
     Node *startNode;
     Node *endNode;
 }
 /* Computes and returns route. */
-- (NSMutableArray *)findPathInGraph:(Map *)graph;
+- (NSMutableArray *)findPathInGraph:(Mall *)graph;
 
 /* Returns an array of nodes(the path). */
 - (void)getPath:(Node *)node;

@@ -105,7 +105,7 @@
 {
     char *error;
     if ( sqlite3_exec(_database, [query UTF8String], NULL, NULL, &error) == SQLITE_OK){
-        NSLog(@"Success");
+        //NSLog(@"Success");
         return YES;
     }
     else{

@@ -12,20 +12,9 @@
 #import "MapViewManager.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface Map : NSObject{
-    NSDictionary *_listDataCopy;
-    NSString *_mName;
+@interface Map : UIView{
+    
     MapViewManager *_mapViewManager;
-    CAShapeLayer *_lineShapeContainer;
 }
-@property (nonatomic, retain) UIView *mapView;
-@property (nonatomic, retain) NSMutableArray *listEdges;
-@property (nonatomic, retain) NSMutableArray *listNodes;
-@property (nonatomic, retain) Node *startNode;
-@property (nonatomic, retain) Node *endNode;
-
-
-- (id)initWithData:(NSDictionary *)data;
-- (void)addViewTo:(UIView *)renderLayer;
-- (Node *)getNodeWithId:(NSNumber *)nodeId;
+- (id)initWithData:(id)data;
 @end
