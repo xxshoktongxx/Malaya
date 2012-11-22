@@ -8,7 +8,7 @@
 
 #import "Mall.h"
 #import "AppManager.h"
-#import "Map.h"
+
 @implementation Mall
 @synthesize listMap = _listMap;
 
@@ -24,22 +24,19 @@
         
         _sqlManager = [AppManager sharedInstance].sqlManager;
         int mallId = [[data objectForKey:@"mallId"] intValue];
+        _mallId = [NSNumber numberWithInt:mallId];
         NSString *query = [NSString stringWithFormat:@"SELECT * FROM Map WHERE mallid=%d;",mallId ];
         NSArray *maps = nil;
         maps = [_sqlManager performSelectQuery:query];
         
         for (NSDictionary *tempDict in maps) {
-            int intMapNumber = [[tempDict objectForKey:@"mapnumber"] intValue];
             int intLevel = [[tempDict objectForKey:@"maplevel"] intValue];
-            
+            NSString *svgname = [tempDict objectForKey:@"svgname"];
             NSNumber *mapLevel = [NSNumber numberWithInt:intLevel];
-            NSNumber *mapNumber = [NSNumber numberWithInt:intMapNumber];
-            NSDictionary *toObject = [[NSDictionary alloc]initWithObjectsAndKeys:mapNumber,@"mapNumber",mapLevel,@"mapLevel", nil];
-            map = [[Map alloc]initWithData:toObject];
-            [_listMap setObject:map forKey:mapLevel];
+            [_listMap setObject:svgname forKey:mapLevel];
             
-            NSArray *nodes = [_sqlManager performSelectQuery:[NSString stringWithFormat:@"SELECT * FROM Node WHERE maplevel=%d",intLevel]];
-            NSArray *edges = [_sqlManager performSelectQuery:[NSString stringWithFormat:@"SELECT * FROM Edge WHERE maplevel=%d",intLevel]];
+            NSArray *nodes = [_sqlManager performSelectQuery:[NSString stringWithFormat:@"SELECT * FROM Node WHERE maplevel=%d AND mallid=%d",intLevel,mallId]];
+            NSArray *edges = [_sqlManager performSelectQuery:[NSString stringWithFormat:@"SELECT * FROM Edge WHERE maplevel=%d AND mallid=%d",intLevel,mallId]];
             [_listNodes addObjectsFromArray:nodes];
             [_listEdges addObjectsFromArray:edges];
         }
@@ -89,11 +86,16 @@
     return nil;
 }
 
-- (Map *)getMapWithLevel:(int)mapLevel{
+- (NSString *)getMapWithLevel:(int)mapLevel{
     if ([_listMap objectForKey:[NSNumber numberWithInt:mapLevel]]) {
         _activeMapIndex = [NSNumber numberWithInt:mapLevel];
         return [_listMap objectForKey:_activeMapIndex];
     }
     return nil;
+}
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"%@ |id:%@",[self class],_mallId];
 }
 @end

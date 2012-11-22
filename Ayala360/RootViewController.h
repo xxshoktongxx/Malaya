@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-@class MapViewController;
-    @interface RootViewController : UIViewController{
-    MapViewController *_mapController;
+#import "BaseController.h"
+@class ViewControllerManager;
+@interface RootViewController : UIViewController{
+    BaseController *_controller;
+    UINavigationController *_navigationController;
+    ViewControllerManager *_controllerManager;
 }
 @end

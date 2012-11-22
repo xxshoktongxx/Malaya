@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 @class Node;
+
 @interface Edge : NSObject
 @property(nonatomic,retain) __strong Node *start;
 @property(nonatomic,retain) __strong Node *end;

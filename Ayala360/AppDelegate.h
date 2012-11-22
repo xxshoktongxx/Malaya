@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "AppManager.h"
 
-//@class RootViewController;
+@class RootViewController;
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 @property (strong, nonatomic) UIWindow *window;
 
-//@property (strong, nonatomic) RootViewController *rootViewController;
+@property (strong, nonatomic) RootViewController *rootViewController;
 @property (nonatomic, strong) AppManager *appManager;
 @end

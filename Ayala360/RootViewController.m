@@ -7,31 +7,31 @@
 //
 
 #import "RootViewController.h"
-#import "MapViewController.h"
-
-@interface RootViewController ()
-
-@end
+#import "AppManager.h"
 
 @implementation RootViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        _controllerManager = [AppManager sharedInstance].controllerManager;
     }
     return self;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    _mapController = [[MapViewController alloc]initWithNibName:@"MapViewController" bundle:nil];
-    [self.view addSubview:_mapController.view];
-    //[_mapController viewWillAppear:NO];
 }
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    _controller = [_controllerManager getMenuWithType:menuTypeMallMenu];
+//    _navigationController = [[UINavigationController alloc]initWithRootViewController:(UIViewController *)_controller];
+//    _navigationController.view.backgroundColor = [UIColor redColor];
+    [self.view addSubview:_controller.view];
+}
+
+- (void)dealloc{
+    NSLog(@"%@ deallocated!",[self class]);
 }
 @end

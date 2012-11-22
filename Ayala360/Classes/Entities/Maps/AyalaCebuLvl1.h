@@ -1,1 +1,0 @@
-////  AyalaCebuLvl1//  converted by wavecoders.ca - Qwarkee application////  Created by Authur's Name on 12-10-5 at 10:42:42//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.//#import "MapRender.h"@interface AyalaCebuLvl1 : MapRender@end

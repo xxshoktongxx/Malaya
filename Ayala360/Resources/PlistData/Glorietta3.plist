@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>uniqueId</key>
+	<string>1</string>
+	<key>name</key>
+	<string>Glorietta3</string>
+	<key>maps</key>
+	<array>
+		<dict>
+			<key>svgName</key>
+			<string>Glorietta3_1F</string>
+			<key>nodes</key>
+			<array/>
+			<key>edges</key>
+			<array/>
+			<key>waypoints</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>svgName</key>
+			<string>Glorietta3_2F</string>
+			<key>nodes</key>
+			<array/>
+			<key>edges</key>
+			<array/>
+			<key>waypoints</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>svgName</key>
+			<string>Glorietta3_3F</string>
+			<key>nodes</key>
+			<array/>
+			<key>edges</key>
+			<array/>
+			<key>waypoints</key>
+			<array/>
+		</dict>
+	</array>
+</dict>
+</plist>

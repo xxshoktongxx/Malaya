@@ -34,6 +34,6 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"%@ |id:%@ |name:%@ |cost:%@ |level:%@",[super description],_nodeId,_name,_cost,_mapLevel];
+    return [NSString stringWithFormat:@"id:%@ |name:%@ coor:%@ |level:%@",_nodeId,_name,_coor,_mapLevel];
 }
 @end

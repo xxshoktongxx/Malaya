@@ -9,8 +9,8 @@
 	<key>maps</key>
 	<array>
 		<dict>
-			<key>mapNumber</key>
-			<string>0</string>
+			<key>svgName</key>
+			<string>AyalaCebu_1F</string>
 			<key>nodes</key>
 			<array>
 				<dict>
@@ -19,7 +19,7 @@
 					<key>name</key>
 					<string>Levi&apos;s</string>
 					<key>coor</key>
-					<string>{318,761}</string>
+					<string>{296,424}</string>
 				</dict>
 				<dict>
 					<key>id</key>
@@ -27,7 +27,7 @@
 					<key>name</key>
 					<string>Giordano</string>
 					<key>coor</key>
-					<string>{320,683}</string>
+					<string>{299, 380}</string>
 				</dict>
 				<dict>
 					<key>id</key>
@@ -35,7 +35,7 @@
 					<key>name</key>
 					<string>Meridian</string>
 					<key>coor</key>
-					<string>{333,619}</string>
+					<string> {304, 349.333}</string>
 				</dict>
 				<dict>
 					<key>id</key>
@@ -43,7 +43,7 @@
 					<key>name</key>
 					<string>CMG</string>
 					<key>coor</key>
-					<string>{336,592}</string>
+					<string>{306.667, 334}</string>
 				</dict>
 				<dict>
 					<key>id</key>
@@ -51,7 +51,7 @@
 					<key>name</key>
 					<string>All Flip Flops</string>
 					<key>coor</key>
-					<string>{341,566}</string>
+					<string>{310, 320.333}</string>
 				</dict>
 				<dict>
 					<key>id</key>
@@ -59,7 +59,7 @@
 					<key>name</key>
 					<string>Accessorize</string>
 					<key>coor</key>
-					<string>{366,552}</string>
+					<string>{298.333, 297.333}</string>
 				</dict>
 				<dict>
 					<key>id</key>
@@ -67,7 +67,7 @@
 					<key>name</key>
 					<string>Call It Spring</string>
 					<key>coor</key>
-					<string>{375,540}</string>
+					<string>{327.333, 306}</string>
 				</dict>
 				<dict>
 					<key>id</key>
@@ -75,7 +75,7 @@
 					<key>name</key>
 					<string>Rockport</string>
 					<key>coor</key>
-					<string>{382,519}</string>
+					<string>{331.667, 295.667}</string>
 				</dict>
 				<dict>
 					<key>id</key>
@@ -83,7 +83,7 @@
 					<key>name</key>
 					<string>Samsonite</string>
 					<key>coor</key>
-					<string>{395,490}</string>
+					<string>{338, 279.333}</string>
 				</dict>
 				<dict>
 					<key>id</key>
@@ -91,7 +91,7 @@
 					<key>name</key>
 					<string>Hot Flops</string>
 					<key>coor</key>
-					<string>{414,464}</string>
+					<string>{347, 265.667}</string>
 				</dict>
 				<dict>
 					<key>id</key>
@@ -99,7 +99,7 @@
 					<key>name</key>
 					<string>Color Stone</string>
 					<key>coor</key>
-					<string>{451,493}</string>
+					<string>{367.333, 283}</string>
 				</dict>
 				<dict>
 					<key>id</key>
@@ -107,7 +107,191 @@
 					<key>name</key>
 					<string>Samsung</string>
 					<key>coor</key>
-					<string>{432,539}</string>
+					<string>{357.333, 306.333}</string>
+				</dict>
+				<dict>
+					<key>id</key>
+					<integer>12</integer>
+					<key>name</key>
+					<string>People Are People</string>
+					<key>coor</key>
+					<string>{334, 200.333}</string>
+				</dict>
+				<dict>
+					<key>id</key>
+					<integer>13</integer>
+					<key>name</key>
+					<string>Red Box</string>
+					<key>coor</key>
+					<string>{360.667, 142.667}</string>
+				</dict>
+				<dict>
+					<key>id</key>
+					<integer>14</integer>
+					<key>name</key>
+					<string>Red Ribbon</string>
+					<key>coor</key>
+					<string>{383, 191}</string>
+				</dict>
+				<dict>
+					<key>id</key>
+					<integer>15</integer>
+					<key>name</key>
+					<string>Mas&apos;s Restaurant</string>
+					<key>coor</key>
+					<string>{405.333, 161}</string>
+				</dict>
+				<dict>
+					<key>id</key>
+					<integer>16</integer>
+					<key>name</key>
+					<string>Seattle&apos;s Best Coffee</string>
+					<key>coor</key>
+					<string>{460, 222}</string>
+				</dict>
+				<dict>
+					<key>id</key>
+					<integer>17</integer>
+					<key>name</key>
+					<string>Banana Leaf</string>
+					<key>coor</key>
+					<string>{491.333, 259.333}</string>
+				</dict>
+				<dict>
+					<key>id</key>
+					<integer>18</integer>
+					<key>name</key>
+					<string>Sumo Sam</string>
+					<key>coor</key>
+					<string>{513.667, 285.333}</string>
+				</dict>
+				<dict>
+					<key>id</key>
+					<integer>19</integer>
+					<key>name</key>
+					<string>T.G.I.Fridays</string>
+					<key>coor</key>
+					<string>{566.333, 306.333}</string>
+				</dict>
+				<dict>
+					<key>id</key>
+					<integer>20</integer>
+					<key>name</key>
+					<string>Dockers</string>
+					<key>coor</key>
+					<string>{555.667, 340.667}</string>
+				</dict>
+				<dict>
+					<key>id</key>
+					<integer>21</integer>
+					<key>name</key>
+					<string>Naturalizer</string>
+					<key>coor</key>
+					<string>{517, 387.333}</string>
+				</dict>
+				<dict>
+					<key>id</key>
+					<integer>22</integer>
+					<key>name</key>
+					<string>Just Jewel</string>
+					<key>coor</key>
+					<string>{497, 390}</string>
+				</dict>
+				<dict>
+					<key>id</key>
+					<integer>23</integer>
+					<key>name</key>
+					<string>Lacoste Footwear</string>
+					<key>coor</key>
+					<string>{478.667, 383.333}</string>
+				</dict>
+				<dict>
+					<key>id</key>
+					<integer>24</integer>
+					<key>name</key>
+					<string>True Value</string>
+					<key>coor</key>
+					<string>{460.667, 344}</string>
+				</dict>
+				<dict>
+					<key>id</key>
+					<integer>25</integer>
+					<key>name</key>
+					<string>Marithe Francois Girbaud</string>
+					<key>coor</key>
+					<string>{421.333, 390.333}</string>
+				</dict>
+				<dict>
+					<key>id</key>
+					<integer>26</integer>
+					<key>name</key>
+					<string>The Body Shop</string>
+					<key>coor</key>
+					<string>{404.333, 380.667}</string>
+				</dict>
+				<dict>
+					<key>id</key>
+					<integer>27</integer>
+					<key>name</key>
+					<string>XOXO</string>
+					<key>coor</key>
+					<string>{378, 389.333}</string>
+				</dict>
+				<dict>
+					<key>id</key>
+					<integer>28</integer>
+					<key>name</key>
+					<string>Beauty Bar</string>
+					<key>coor</key>
+					<string>{367.667, 365.667}</string>
+				</dict>
+				<dict>
+					<key>id</key>
+					<integer>29</integer>
+					<key>name</key>
+					<string>Vans</string>
+					<key>coor</key>
+					<string>{382.667, 345.667}</string>
+				</dict>
+				<dict>
+					<key>id</key>
+					<integer>30</integer>
+					<key>name</key>
+					<string>Terranova</string>
+					<key>coor</key>
+					<string>{390.333, 316.667}</string>
+				</dict>
+				<dict>
+					<key>id</key>
+					<integer>31</integer>
+					<key>name</key>
+					<string>Nautica</string>
+					<key>coor</key>
+					<string>{407.333, 287}</string>
+				</dict>
+				<dict>
+					<key>id</key>
+					<integer>32</integer>
+					<key>name</key>
+					<string>Etude House</string>
+					<key>coor</key>
+					<string>{420.667, 268.333}</string>
+				</dict>
+				<dict>
+					<key>id</key>
+					<integer>33</integer>
+					<key>name</key>
+					<string>ATM</string>
+					<key>coor</key>
+					<string>{412.667, 248}</string>
+				</dict>
+				<dict>
+					<key>id</key>
+					<integer>34</integer>
+					<key>name</key>
+					<string>ALVEO</string>
+					<key>coor</key>
+					<string>{446, 199.667}</string>
 				</dict>
 			</array>
 			<key>edges</key>
@@ -161,32 +345,6 @@
 					<integer>8</integer>
 				</dict>
 			</array>
-			<key>waypoints</key>
-			<array>
-				<dict>
-					<key>startId</key>
-					<integer>8</integer>
-					<key>endId</key>
-					<integer>23</integer>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>mapNumber</key>
-			<string>1</string>
-			<key>nodes</key>
-			<array>
-				<dict>
-					<key>id</key>
-					<integer>23</integer>
-					<key>name</key>
-					<string>2nd Level</string>
-					<key>coor</key>
-					<string>{432,539}</string>
-				</dict>
-			</array>
-			<key>edges</key>
-			<array/>
 			<key>waypoints</key>
 			<array/>
 		</dict>

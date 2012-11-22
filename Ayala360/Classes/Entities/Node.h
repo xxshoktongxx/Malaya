@@ -16,7 +16,7 @@
 @property (nonatomic,readonly) __strong NSString *coor;
 @property (nonatomic,assign) float zAxis;               /** z axis for computing distance. */
 @property (nonatomic,retain) Node *parentNode;
-@property (nonatomic,retain) NSNumber *mapLevel;    /**Reference to level where the node is located. */
+@property (nonatomic,retain) NSNumber *mapLevel;        /**Reference to level where the node is located. */
 
 - (id)initWithData:(NSDictionary *)data;
 - (double)getAngleTo:(Node *)node;

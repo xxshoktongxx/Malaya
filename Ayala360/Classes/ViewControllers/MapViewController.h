@@ -6,17 +6,16 @@
 //
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseController.h"
 #import "Mall.h"
 @class Dijkstra;
 @class SqlManager;
 
-@interface MapViewController : UIViewController{
+@interface MapViewController : BaseController{
     NSArray *_listRoute;
     UIImageView *_hero;
-    UIScrollView *_scrollView;
     Mall *_mMall;                       /** Holds the instance of mall */
-    Map *_mMap;                         /** Holds the refence of active map in mall.listmap*/
+    SVGViewController *_mapView;        /** Holds the refence of active map in mall.listmap*/
     
     /** Managers */
     Dijkstra *_dijkstra;

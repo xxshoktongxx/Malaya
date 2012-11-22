@@ -14,11 +14,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
     _appManager = [AppManager sharedInstance];
     [_appManager loadManagers];
     
+    self.rootViewController = [[RootViewController alloc]initWithNibName:@"RootViewController" bundle:nil];
     // Override point for customization after application launch.
-    self.window.rootViewController = _appManager.rootController;
+    self.window.rootViewController = self.rootViewController;
     [self.window makeKeyAndVisible];
     return YES;
 }
