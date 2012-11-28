@@ -9,9 +9,8 @@
 #import "BaseController.h"
 #import "BZFoursquare.h"
 #import "LocationManager.h"
-#import "Foursquare.h"
 
-@interface CheckInController : BaseController <UITableViewDataSource,UITableViewDelegate,FoursquareProtocol/*,BZFoursquareRequestDelegate,BZFoursquareSessionDelegate*/,LocationManagerProtocol>{
+@interface CheckInController : BaseController <UITableViewDataSource,UITableViewDelegate,LocationManagerProtocol>{
     UITableView *_tableViewNearby;
     NSArray *_listNearBy;
     LocationManager *_location;

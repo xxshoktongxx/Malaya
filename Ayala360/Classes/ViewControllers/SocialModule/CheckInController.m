@@ -8,6 +8,7 @@
 
 #import "CheckInController.h"
 #import "AppDelegate.h"
+#import "NSDictionary_JSONExtensions.h"
 
 @implementation CheckInController
 
@@ -183,16 +184,6 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-#pragma mark - Foursquare Protocol
-//- (void)didSucceedRequest:(AFHTTPRequestOperation *)operation responseObject:(id)object{
-//    NSLog(@"\n\n\n\n\n\n");
-//}
-//
-//- (void)didFailRequest:(AFHTTPRequestOperation *)operation error:(NSError *)error{
-//    
-//}
-
-
 #pragma mark - Default Methods
 - (void)viewDidLoad{
     [super viewDidLoad];
@@ -203,6 +194,8 @@
         //[self didSucceedRequest:operation responseObject:responseObject];
         [self unrenderSpinner];
         NSLog(@"%@",[[NSString alloc]initWithData:responseObject encoding:NSASCIIStringEncoding]);
+        NSDictionary *data = [NSDictionary dictionaryWithJSONData:responseObject error:nil];
+        _listNearBy = [[[[[data objectForKey:@"response"] allValues] lastObject] objectAtIndex:@"items"] allValues];
         [_tableViewNearby reloadData];
     };
     
