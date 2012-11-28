@@ -7,10 +7,7 @@
 //
 
 #import "SocialShare.h"
-
-@interface SocialShare ()
-
-@end
+#import "AppManager.h"
 
 @implementation SocialShare
 
@@ -26,12 +23,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
 }
 
-- (void)onHome{
-    self.customTabbar = [self.controllerManager getCustomTabbar];
-    [self.customTabbar onHome];
+- (IBAction)on4sqr:(id)sender{
+    _controller = [self.controllerManager getMenuWithType:menuTypeCheckIn];
+    [self.navigationController pushViewController:_controller animated:YES];
+}
+
+
+#pragma mark - Private Methods
+- (void)onFB{
+    
+}
+
+- (void)onTwitter{
+    
 }
 
 #pragma mark - Default Methods

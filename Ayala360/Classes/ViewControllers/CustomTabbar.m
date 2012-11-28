@@ -8,7 +8,6 @@
 
 #import "CustomTabbar.h"
 #import "AppManager.h"
-#import "DDKCustomTabButton.h"
 
 @implementation CustomTabbar
 

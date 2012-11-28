@@ -10,12 +10,4 @@
 #import "AppManager.h"
 @implementation DataManager
 
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        
-    }
-    return self;
-}
 @end

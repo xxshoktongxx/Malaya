@@ -12,12 +12,16 @@
 #import "Dijkstra.h"
 #import "SqlManager.h"
 #import "DataManager.h"
+#import "LocationManager.h"
+#import "Foursquare.h"
 
 @interface AppManager : NSObject
 @property (nonatomic, retain) __strong ViewControllerManager *controllerManager;
 @property (nonatomic, retain) __strong Dijkstra *dijkstra;
 @property (nonatomic, retain) __strong SqlManager *sqlManager;
 @property (nonatomic, retain) __strong DataManager *dataManager;
+@property (nonatomic, retain) __strong LocationManager *locationManager;
+@property (nonatomic, retain) __strong Foursquare *foursquareManager;
 
 +(AppManager *)sharedInstance;
 - (void)loadManagers;

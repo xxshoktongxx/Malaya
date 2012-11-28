@@ -6,8 +6,5 @@
 //
 //
 
-#import <Foundation/Foundation.h>
-
-@protocol Constant <NSObject>
-
-@end
+#define kCLIENT_ID       @"10MGRKDEYRVM32E2EBN1FET3G45YJP3CFYQ3DTCQ2JFNGL0V"
+#define kCALLBACK_URL    @"http://ripple-wave.com"

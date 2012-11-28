@@ -7,6 +7,8 @@
 //
 
 #import "LocationManager.h"
+#import "DataManager.h"
+#import "AppManager.h"
 
 @implementation LocationManager
 
@@ -67,6 +69,7 @@
 - (void)notifyObservers{
     for(id<LocationManagerProtocol> observer in _listObservers){
         [observer _locationManagerNotification:_locationManager.location];
+        [AppManager sharedInstance].dataManager.currentLocation = _locationManager.location;
     }
     [_locationManager stopUpdatingLocation];
     [_locationManager stopUpdatingHeading];

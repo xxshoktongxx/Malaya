@@ -10,7 +10,6 @@
 #import "PlistHelper.h"
 
 @implementation AppManager
-//@synthesize rootController = _rootController;
 @synthesize dijkstra = _dijkstra;
 
 #define kDB_NAME @"RippleWave1"
@@ -29,6 +28,8 @@ static AppManager * _appManager = nil;
 - (void)loadManagers{
     _dataManager = [[DataManager alloc]init];
     _dijkstra = [[Dijkstra alloc]init];
+    _locationManager = [[LocationManager alloc]init];
+    _foursquareManager = [[Foursquare alloc]init];
     _sqlManager = [[SqlManager alloc]initDatabaseWithNameNoExt:kDB_NAME];
 //    [self createSqlTables];
 //    [self processPlist];
@@ -36,7 +37,6 @@ static AppManager * _appManager = nil;
 
     _controllerManager = [[ViewControllerManager alloc]init];
 }
-
 
 #pragma mark - Proccess Sql Data data
 - (void)createSqlTables{

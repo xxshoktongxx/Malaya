@@ -14,7 +14,8 @@ typedef enum{
     menuTypeMapViewController,
     menuTypeMallMenu,
     menuTypeMallDetailMenu,
-    menuTypeSocialShare
+    menuTypeSocialShare,
+    menuTypeCheckIn,
 }MenuType;
 
 @interface ViewControllerManager : NSObject{

@@ -8,6 +8,7 @@
 
 #import "BaseController.h"
 
-@interface SocialShare : BaseController
-
+@interface SocialShare : BaseController{
+    BaseController *_controller;
+}
 @end

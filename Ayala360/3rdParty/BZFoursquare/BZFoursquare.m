@@ -107,7 +107,6 @@
     NSString *requestUrl = [[request URL] absoluteString];
     NSRange range = [requestUrl rangeOfString:@"access_token="];
     if (range.location != NSNotFound) {
-        NSLog(@"requestUrl: %@",requestUrl);
         self.accessToken = [[requestUrl componentsSeparatedByString:@"="] lastObject];
         NSLog(@"Token %@",self.accessToken);
         [_webview removeFromSuperview];

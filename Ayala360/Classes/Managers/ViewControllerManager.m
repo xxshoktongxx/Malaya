@@ -13,6 +13,7 @@
 #import "CustomTabbar.h"
 #import "MapViewController.h"
 #import "SocialShare.h"
+#import "CheckInController.h"
 
 @implementation ViewControllerManager
 
@@ -34,11 +35,9 @@
             _menu = [[MallMenu alloc]initWithNibName:@"MallMenu" bundle:nil];
             _menu.title = @"Ayala Malls";
             break;
-//        case menuTypeMallDetailMenu:
-//            _menu = [[MallDetailMenu alloc]initWithNibName:@"MallDetailMenu" bundle:nil];
-//            _navigationController = [[UINavigationController alloc]initWithRootViewController:_menu];
-//            [_navigationController setNavigationBarHidden:NO];
-//            break;
+        case menuTypeCheckIn:
+            _menu = [[CheckInController alloc]initWithNibName:@"CheckInController" bundle:nil];
+            break;
         default:
             break;
     }
@@ -49,10 +48,6 @@
 //Root controllers of customTabbar
 - (UINavigationController *)getMenuWithNavWithType:(MenuType)type{
     switch (type) {
-//        case menuTypeMapViewController:
-//            _menu = [[MapViewController alloc]initWithNibName:@"MapViewController" bundle:nil];
-//            _navigationController = [[UINavigationController alloc]initWithRootViewController:_menu];
-//            break;
         case menuTypeSocialShare:
             _menu = [[SocialShare alloc]initWithNibName:@"SocialShare" bundle:nil];
             _menu.title = @"";
