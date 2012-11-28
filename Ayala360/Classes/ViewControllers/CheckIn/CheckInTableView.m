@@ -1,16 +1,15 @@
 //
-//  CheckInController.m
-//  Foursquare3
+//  CheckInTableView.m
 //
 //  Created by Martin on 11/27/12.
 //  Copyright (c) 2012 Ripplewave. All rights reserved.
 //
 
-#import "CheckInController.h"
-#import "AppDelegate.h"
+#import "CheckInTableView.h"
+#import "AFHTTPRequestOperation.h"
 #import "NSDictionary_JSONExtensions.h"
 
-@implementation CheckInController
+@implementation CheckInTableView
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -31,72 +30,16 @@
 
 - (void)searchVenues:(NSString *)location {
     NSDictionary *param = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"40.7,-74", @"ll", nil];
-    [[Foursquare sharedInstance]requestWithPath:@"venues/search" methodType:typeGet parameters:param success:_success fail:_fail];
-//    [self prepareForRequest];
-//    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:@"40.7,-74", @"ll", nil];
-//    _request = [_foursquare requestWithPath:@"venues/search" HTTPMethod:@"GET" parameters:parameters delegate:self];
-//    [_request start];
+    [_foursquare requestWithPath:@"venues/search" methodType:typeGet parameters:param success:_success fail:_fail];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 }
 
 - (void)checkin:(NSString *)objectId{
-//    [self prepareForRequest];
-//    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:objectId, @"venueId", @"public", @"broadcast", nil];
-//    _request = [_foursquare requestWithPath:@"checkins/add" HTTPMethod:@"POST" parameters:parameters delegate:self];
-//    [_request start];
-//    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    NSDictionary *param = [NSMutableDictionary dictionaryWithObjectsAndKeys:objectId, @"venueId", @"public", @"broadcast", nil];
+    
+    [_foursquare requestWithPath:@"checkins/add" methodType:typePost parameters:param success:_success fail:_fail];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 }
-
-//- (void)prepareForRequest {
-//    [self cancelRequest];
-//    _meta = nil;
-//    _notifications = nil;
-//    _response = nil;
-//}
-//
-//- (void)cancelRequest {
-//    if (_request) {
-//        _request.delegate = nil;
-//        [_request cancel];
-//        _request = nil;
-//        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-//    }
-//}
-//#pragma mark -  BZFoursquareRequestDelegate
-//- (void)requestDidFinishLoading:(BZFoursquareRequest *)request {
-//    _meta = request.meta;
-//    _notifications = request.notifications;
-//    _response = request.response;
-//    if([[_request path] isEqualToString:@"venues/search"]){
-//        _listNearBy = [_response objectForKey:@"venues"];
-//        [_tableViewNearby reloadData];
-//    }
-//    else if([[_request path]isEqualToString:@"checkins/add"]){
-//        NSLog(@"You have checked-in.");
-//    }
-//    _request = nil;
-//}
-//
-//- (void)request:(BZFoursquareRequest *)request didFailWithError:(NSError *)error {
-//    NSLog(@"%s: %@", __PRETTY_FUNCTION__, error);
-//    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:[[error userInfo] objectForKey:@"errorDetail"] delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"") otherButtonTitles:nil];
-//    [alertView show];
-//    _meta = request.meta;
-//    _notifications = request.notifications;
-//    _response = request.response;
-//    _request = nil;
-//}
-
-//#pragma mark - BZFoursquareSessionDelegate
-//- (void)foursquareDidAuthorize:(BZFoursquare *)foursquare {
-//    //add spinner before this method
-//    NSLog(@"foursquareDidAuthorize:");
-//}
-//
-//- (void)foursquareDidNotAuthorize:(BZFoursquare *)foursquare error:(NSDictionary *)errorInfo {
-//    NSLog(@"%s: %@", __PRETTY_FUNCTION__, errorInfo);
-//}
-
 
 - (void)renderSpinner{
     if (!_viewSpinnerContainer) {
@@ -123,13 +66,13 @@
 
 #pragma mark - LocationManager
 - (void)loadLocationManager{
-    _location = [[LocationManager alloc]init];
+    _location =  [AppManager sharedInstance].locationManager;
     [_location addObserver:self];
     [_location start];
 }
 #pragma mark Location Protocol
 - (void)_locationManagerNotification:(CLLocation *)location{
-    NSLog(@"DID RECEIVE NOTIFICATION");
+    NSLog(@"User location found");
     NSString *latitude = [NSString stringWithFormat:@"%f", location.coordinate.latitude];
     NSString *longitude = [NSString stringWithFormat:@"%f", location.coordinate.longitude];
     [self searchVenues:[NSString stringWithFormat:@"%@,%@",latitude,longitude]];
@@ -189,21 +132,32 @@
     [super viewDidLoad];
     [self authenticate];
     
-    _success = ^void(AFHTTPRequestOperation *operation, id responseObject){
+    //URLRequest "success" callback
+    void(^success)(id,id) = ^void(AFHTTPRequestOperation *operation, id responseObject){
         NSLog(@"success");
-        //[self didSucceedRequest:operation responseObject:responseObject];
         [self unrenderSpinner];
         NSDictionary *data = [NSDictionary dictionaryWithJSONData:responseObject error:nil];
-        _listNearBy = [[[[data objectForKey:@"response"] objectForKey:@"groups"] objectAtIndex:0] objectForKey:@"items"];
-        [_tableViewNearby reloadData];
+        NSString *requestUrl = [NSString stringWithFormat:@"%@",[[operation request]URL]];
+        NSRange range;
+        range = [requestUrl rangeOfString:@"venues/search"];
+        if (range.location != NSNotFound) {
+            NSLog(@"VENUE SEARCH");
+            _listNearBy = [[[[data objectForKey:@"response"] objectForKey:@"groups"] objectAtIndex:0] objectForKey:@"items"];
+            [_tableViewNearby reloadData];
+        }
+        range = [requestUrl rangeOfString:@"checkins/add"];
+        if (range.location != NSNotFound) {
+            NSLog(@"CHECKIN");
+        }
     };
+    _success = success;
     
-    _fail = ^void(AFHTTPRequestOperation *operation, NSError *error){
+    //URLRequest "fail" callback
+    void(^fail)(id,id) = ^void(AFHTTPRequestOperation *operation, NSError *error){
         NSLog(@"%@",error);
-        //        [self didFailRequest:operation error:error];
         [self unrenderSpinner];
     };
-
+    _fail = fail;
 }
 
 - (void)viewWillAppear:(BOOL)animated{

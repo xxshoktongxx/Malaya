@@ -14,6 +14,7 @@
 @interface CustomTabbar : UITabBarController{
     NSMutableArray *_listTabImages;
     NSMutableArray *_listTabButtons;
+    UINavigationController *_navigationController;
     void (^_blockPopup)(void);
     
     //Managers

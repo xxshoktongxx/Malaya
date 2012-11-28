@@ -53,18 +53,28 @@
     _sqlManager = [AppManager sharedInstance].sqlManager;
     _dataManager = [AppManager sharedInstance].dataManager;
     
-    UINavigationController *controller1 = [_controllerManager getMenuWithNavWithType:menuTypeMallDetailMenu];
-    controller1.tabBarItem.image = [UIImage imageNamed:@"tabButtonHome.png"];
-    UINavigationController *controller2 = [_controllerManager getMenuWithNavWithType:menuTypeSocialShare];
-    controller2.tabBarItem.image = [UIImage imageNamed:@"tabButtonCheckIn.png"];
-    UINavigationController *controller3 = [_controllerManager getMenuWithNavWithType:menuTypeMallDetailMenu];
-    controller3.tabBarItem.image = [UIImage imageNamed:@"tabButtonFavorites.png"];
-    UINavigationController *controller4 = [_controllerManager getMenuWithNavWithType:menuTypeSocialShare];
-    controller4.tabBarItem.image = [UIImage imageNamed:@"tabButtonShare.png"];
-    UINavigationController *controller5 = [_controllerManager getMenuWithNavWithType:menuTypeMallDetailMenu];
-    controller5.tabBarItem.image = [UIImage imageNamed:@"tabButtonPrefs.png"];
+    NSMutableArray *listControllers = [[NSMutableArray alloc]init];
     
-    NSArray *listControllers = [NSArray arrayWithObjects:controller1, controller2, controller3, controller4, controller5, nil];
+    _navigationController = [_controllerManager getMenuWithNavWithType:menuTypeMallDetailMenu];
+    _navigationController.tabBarItem.image = [UIImage imageNamed:@"tabButtonHome.png"];
+    [listControllers addObject:_navigationController];
+    
+    _navigationController = [_controllerManager getMenuWithNavWithType:menuTypeSocialShare];
+    _navigationController.tabBarItem.image = [UIImage imageNamed:@"tabButtonCheckIn.png"];
+    [listControllers addObject:_navigationController];
+    
+    _navigationController = [_controllerManager getMenuWithNavWithType:menuTypeFavorites];
+    _navigationController.tabBarItem.image = [UIImage imageNamed:@"tabButtonFavorites.png"];
+    [listControllers addObject:_navigationController];
+    
+    _navigationController = [_controllerManager getMenuWithNavWithType:menuTypeSocialShare];
+    _navigationController.tabBarItem.image = [UIImage imageNamed:@"tabButtonShare.png"];
+    [listControllers addObject:_navigationController];
+    
+    _navigationController = [_controllerManager getMenuWithNavWithType:menuTypeMallDetailMenu];
+    _navigationController.tabBarItem.image = [UIImage imageNamed:@"tabButtonPrefs.png"];
+    [listControllers addObject:_navigationController];
+    
     self.viewControllers = listControllers;
     UIImageView *background = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MainBG.png"]];
     background.frame = CGRectMake(0, 20, 320, 460);
@@ -93,9 +103,9 @@
     }
     int count = [self.viewControllers count];
     float xWidth = 320 / count;
-    float yCenter = 480.0 - 33.0f;
+    float yCenter = 480.0 - 30.0f;
     
-    for(int i = 0; i < count; i++){
+    for(int i = 0; i <count; i++){
         float x = xWidth * i + xWidth / 2;
         float y = yCenter;
         
@@ -118,11 +128,15 @@
 - (void)pressTab:(UIButton *)sender{
     //Get the index of button in array
     int idx = [_listTabButtons indexOfObject:sender];
-    
+    [self setActiveIndex:idx];
+}
+
+- (void)setActiveIndex:(int)x{
+    [self setSelectedIndex:x];
     //Find active button and set selected image
     for(int i=0; i<_listTabButtons.count; i++){
         UIButton *button = [_listTabButtons objectAtIndex:i];
-        if (idx == i) {
+        if (x == i) {
             UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"%@_p.png",[_listTabImages objectAtIndex:i]]];
             [button setImage:image forState:UIControlStateNormal];
         }
@@ -131,10 +145,5 @@
             [button setImage:image forState:UIControlStateNormal];
         }
     }
-    [self setActiveIndex:idx];
-}
-
-- (void)setActiveIndex:(int)x{
-    self.selectedIndex = x;
 }
 @end

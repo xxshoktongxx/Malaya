@@ -1,15 +1,18 @@
 //
-//  SocialShare.m
+//  FavoritesController.m
 //  Ayala360
 //
-//  Created by Martin on 11/22/12.
+//  Created by martin magalong on 11/28/12.
 //
 //
 
-#import "SocialShare.h"
-#import "AppManager.h"
+#import "FavoritesController.h"
 
-@implementation SocialShare
+@interface FavoritesController ()
+
+@end
+
+@implementation FavoritesController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -20,27 +23,15 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-}
-
-- (IBAction)on4sqr:(id)sender{
-    _controller = [self.controllerManager getMenuWithType:menuTypeCheckIn];
-    [self.navigationController pushViewController:_controller animated:YES];
-}
-
-
-#pragma mark - Private Methods
-- (void)onFB{
-    
-}
-
-- (void)onTwitter{
-    
+- (void)onHome{
+    self.customTabbar = [self.controllerManager getCustomTabbar];
+    [self.customTabbar onHome];
 }
 
 #pragma mark - Default Methods
+- (void)viewDidLoad{
+    [super viewDidLoad];
+}
 - (void)viewDidAppear:(BOOL)animated{
     UIImage *buttonImage = [UIImage imageNamed:@"buttonNavigationBack.png"];
 	UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];

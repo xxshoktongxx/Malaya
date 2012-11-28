@@ -13,7 +13,8 @@
 #import "CustomTabbar.h"
 #import "MapViewController.h"
 #import "SocialShare.h"
-#import "CheckInController.h"
+#import "CheckInTableView.h"
+#import "FavoritesController.h"
 
 @implementation ViewControllerManager
 
@@ -36,12 +37,11 @@
             _menu.title = @"Ayala Malls";
             break;
         case menuTypeCheckIn:
-            _menu = [[CheckInController alloc]initWithNibName:@"CheckInController" bundle:nil];
+            _menu = [[CheckInTableView alloc]initWithNibName:@"CheckInTableView" bundle:nil];
             break;
         default:
             break;
     }
-    
     return _menu;
 }
 
@@ -50,11 +50,14 @@
     switch (type) {
         case menuTypeSocialShare:
             _menu = [[SocialShare alloc]initWithNibName:@"SocialShare" bundle:nil];
-            _menu.title = @"";
             _navigationController = [[UINavigationController alloc]initWithRootViewController:_menu];
             break;
         case menuTypeMallDetailMenu:
             _menu = [[MallDetailMenu alloc]initWithNibName:@"MallDetailMenu" bundle:nil];
+            _navigationController = [[UINavigationController alloc]initWithRootViewController:_menu];
+            break;
+        case menuTypeFavorites:
+            _menu = [[FavoritesController alloc]initWithNibName:@"FavoritesController" bundle:nil];
             _navigationController = [[UINavigationController alloc]initWithRootViewController:_menu];
             break;
         default:
