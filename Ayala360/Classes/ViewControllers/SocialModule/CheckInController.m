@@ -193,9 +193,8 @@
         NSLog(@"success");
         //[self didSucceedRequest:operation responseObject:responseObject];
         [self unrenderSpinner];
-        NSLog(@"%@",[[NSString alloc]initWithData:responseObject encoding:NSASCIIStringEncoding]);
         NSDictionary *data = [NSDictionary dictionaryWithJSONData:responseObject error:nil];
-        _listNearBy = [[[[[data objectForKey:@"response"] allValues] lastObject] objectAtIndex:@"items"] allValues];
+        _listNearBy = [[[[data objectForKey:@"response"] objectForKey:@"groups"] objectAtIndex:0] objectForKey:@"items"];
         [_tableViewNearby reloadData];
     };
     
