@@ -148,6 +148,8 @@
 		E745C561166626600060F453 /* NSCharacterSet_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E745C55A166626600060F453 /* NSCharacterSet_Extensions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E745C562166626600060F453 /* NSDictionary_JSONExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E745C55C166626600060F453 /* NSDictionary_JSONExtensions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E745C563166626600060F453 /* NSScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E745C55E166626600060F453 /* NSScanner_Extensions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E745C57F166746F70060F453 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E745C57E166746F70060F453 /* MapKit.framework */; };
+		E745C583166753740060F453 /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = E745C582166753740060F453 /* MapAnnotation.m */; };
 		E7868218165357C8009A93DB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7868217165357C8009A93DB /* UIKit.framework */; };
 		E786821A165357C8009A93DB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7868219165357C8009A93DB /* Foundation.framework */; };
 		E786821C165357C8009A93DB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E786821B165357C8009A93DB /* CoreGraphics.framework */; };
@@ -390,6 +392,9 @@
 		E745C55C166626600060F453 /* NSDictionary_JSONExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDictionary_JSONExtensions.m; sourceTree = "<group>"; };
 		E745C55D166626600060F453 /* NSScanner_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSScanner_Extensions.h; sourceTree = "<group>"; };
 		E745C55E166626600060F453 /* NSScanner_Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSScanner_Extensions.m; sourceTree = "<group>"; };
+		E745C57E166746F70060F453 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		E745C581166753730060F453 /* MapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAnnotation.h; sourceTree = "<group>"; };
+		E745C582166753740060F453 /* MapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAnnotation.m; sourceTree = "<group>"; };
 		E7868213165357C8009A93DB /* Ayala360.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ayala360.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7868217165357C8009A93DB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E7868219165357C8009A93DB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -438,6 +443,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E745C57F166746F70060F453 /* MapKit.framework in Frameworks */,
 				E745C51016660B9F0060F453 /* Security.framework in Frameworks */,
 				E745C50E16660B960060F453 /* SystemConfiguration.framework in Frameworks */,
 				E7D100D31664958F0067028B /* CoreLocation.framework in Frameworks */,
@@ -785,9 +791,19 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		E745C584166753790060F453 /* MapAnnotation */ = {
+			isa = PBXGroup;
+			children = (
+				E745C581166753730060F453 /* MapAnnotation.h */,
+				E745C582166753740060F453 /* MapAnnotation.m */,
+			);
+			name = MapAnnotation;
+			sourceTree = "<group>";
+		};
 		E7868208165357C8009A93DB = {
 			isa = PBXGroup;
 			children = (
+				E745C57E166746F70060F453 /* MapKit.framework */,
 				E745C50F16660B9F0060F453 /* Security.framework */,
 				E745C50D16660B960060F453 /* SystemConfiguration.framework */,
 				E7D100D21664958F0067028B /* CoreLocation.framework */,
@@ -927,6 +943,7 @@
 			children = (
 				E73D5B4D165CA68400834886 /* BaseController.h */,
 				E73D5B4E165CA68500834886 /* BaseController.m */,
+				E745C584166753790060F453 /* MapAnnotation */,
 				E7868251165367AD009A93DB /* Mall */,
 			);
 			path = Entities;
@@ -1203,6 +1220,7 @@
 				E745C563166626600060F453 /* NSScanner_Extensions.m in Sources */,
 				5B1EA11C1666558E002701EC /* CALayerExporter.m in Sources */,
 				5B1EA121166664EB002701EC /* FavoritesController.m in Sources */,
+				E745C583166753740060F453 /* MapAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

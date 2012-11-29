@@ -106,9 +106,9 @@
         NSLog(@"TokenId: %@",_tokenId);
         [_webview removeFromSuperview];
         if (_tokenId) {
-            if (_callback) {
+//            if (_callback) {
                 _callback();
-            }
+//            }
         } else {
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error!" message:@"Sorry but something went wrong. Kindly reload this page." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Dismiss", nil];
             [alert show];
