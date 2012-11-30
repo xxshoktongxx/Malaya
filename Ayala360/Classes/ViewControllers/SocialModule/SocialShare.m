@@ -20,12 +20,6 @@
     return self;
 }
 
-- (IBAction)on4sqr:(id)sender{
-    _controller = [self.controllerManager getMenuWithType:menuTypeCheckIn];
-    [self.navigationController pushViewController:_controller animated:YES];
-}
-
-
 #pragma mark - Private Methods
 - (void)onFB{
     

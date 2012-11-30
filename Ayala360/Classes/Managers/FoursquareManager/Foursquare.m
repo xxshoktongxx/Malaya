@@ -15,24 +15,35 @@
 #define KFOURSQAURE_CALLBACK_URL @"http://ripple-wave.com"
 #define kFOURSQUARE_AUTH_KEY @"AUTH_KEY"
 
-+ (Foursquare *)sharedInstance{
-    static Foursquare *_sharedInstance = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _sharedInstance = [[Foursquare alloc] init];
-    });
-    return _sharedInstance;
-}
+//+ (Foursquare *)sharedInstance{
+//    static Foursquare *_sharedInstance = nil;
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        _sharedInstance = [[Foursquare alloc] init];
+//    });
+//    return _sharedInstance;
+//}
 
 - (id)init
 {
     self = [super initWithBaseURL:[NSURL URLWithString:kFOURSQUARE_BASE_URL]];
     if (self) {
         _tokenId = [[NSUserDefaults standardUserDefaults]objectForKey:kFOURSQUARE_AUTH_KEY];
+        _success = ^void(AFHTTPRequestOperation *operation, id responseObject){
+            if ([self.delegate respondsToSelector:@selector(_didSucceedRequest:responseObject:)]) {
+                [self.delegate _didSucceedRequest:operation responseObject:responseObject];
+            }
+        };
+        _fail = ^void(AFHTTPRequestOperation *operation, NSError *error){
+            if ([self.delegate respondsToSelector:@selector(_didFailRequest:error:)]) {
+                [self.delegate _didFailRequest:operation error:error];
+            }
+        };
     }
     return self;
 }
-
+#pragma mark - 
+#pragma mark Private Methods
 - (BOOL)isSessionValid{
     if(_tokenId){
         return YES;
@@ -55,7 +66,17 @@
     }
 }
 
-#pragma mark - Authentication Process
+#pragma mark User Actions
+- (void)searchVenuesWithParam:(NSDictionary *)param{
+    [self requestWithPath:@"venues/search" methodType:typeGet parameters:param success:_success fail:_fail];
+}
+
+- (void)checkinWithParam:(NSDictionary *)param{
+    [self requestWithPath:@"checkins/add" methodType:typePost parameters:param success:_success fail:_fail];
+}
+
+#pragma mark - 
+#pragma mark Authentication Process
 - (void)startAuthentication:(void(^)(void))callback{
     if (![self isSessionValid]) {
         _callback = [callback copy];
@@ -81,6 +102,7 @@
         [mURLString appendString:[pairs componentsJoinedByString:@"&"]];
         NSURL *URL = [NSURL URLWithString:mURLString];
         
+//        [[UIApplication sharedApplication]openURL:URL];
         NSURLRequest *request = [[NSURLRequest alloc]initWithURL:URL];
         _webview = [[UIWebView alloc]init];
         _webview.frame = (CGRect){.origin=CGPointMake(0,0),.size=CGSizeMake(320, 300)};

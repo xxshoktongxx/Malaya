@@ -67,12 +67,12 @@
 
 #pragma mark - OBSERVERS
 - (void)notifyObservers{
+    [_locationManager stopUpdatingLocation];
+    [_locationManager stopUpdatingHeading];
     for(id<LocationManagerProtocol> observer in _listObservers){
         [observer _locationManagerNotification:_locationManager.location];
         [AppManager sharedInstance].dataManager.currentLocation = _locationManager.location;
     }
-    [_locationManager stopUpdatingLocation];
-    [_locationManager stopUpdatingHeading];
 }
 - (void)addObserver:(id<LocationManagerProtocol>)observer{
     if ([observer conformsToProtocol:@protocol(LocationManagerProtocol)]) {

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "RootViewController.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @implementation AppDelegate
 
@@ -24,6 +25,24 @@
     [self.window makeKeyAndVisible];
     return YES;
 }
+// FBSample logic
+// In the login workflow, the Facebook native application, or Safari will transition back to
+// this applicaiton via a url following the scheme fb[app id]://; the call to handleOpenURL
+// below captures the token, in the case of success, on behalf of the FBSession object
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    return [FBSession.activeSession handleOpenURL:url];
+}
+
+// FBSample logic
+// It is important to close any FBSession object that is no longer useful
+- (void)applicationWillTerminate:(UIApplication *)application {
+    // Close the session token before quitting
+    [FBSession.activeSession close];
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
@@ -46,10 +65,4 @@
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
-
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
-
 @end

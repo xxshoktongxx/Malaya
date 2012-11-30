@@ -9,24 +9,25 @@
 #import "AppManager.h"
 #import <MapKit/MapKit.h>
 
-@interface CheckInTableView : BaseController <UITableViewDataSource,UITableViewDelegate,LocationManagerProtocol,MKMapViewDelegate>{
+@interface CheckInTableView : BaseController <UITableViewDataSource,UITableViewDelegate,LocationManagerProtocol,MKMapViewDelegate,FoursquareDelegate>{
     /** Holds the instance of table view for nearby places. */
     UITableView *_tableViewNearby;
     /** Hold the list of all nearby places. */
     NSArray *_listNearBy;
     
-    /** Attributes for forsqaure */
-    Foursquare          *_foursquare;
+    /** Attributes for foursqaure */
     UIView *_viewSpinnerContainer;
-    void(^_success)(id,id);
-    void(^_fail)(id,id);
+    UIView *_viewCheckInShout;
+    UITextView *_textViewShout;
     
     /** Attributes for map */
     IBOutlet MKMapView *_mapview;
     CLLocationCoordinate2D _currentLocation;
     CLLocationCoordinate2D _tempLocation;
+    NSArray *_listAnnotation;
     
     //Manager
+    Foursquare *_foursquare;
     LocationManager *_location;
 }
 @end

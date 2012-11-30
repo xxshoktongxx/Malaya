@@ -7,9 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B1EA11C1666558E002701EC /* CALayerExporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1EA11B1666558E002701EC /* CALayerExporter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		5B1EA121166664EB002701EC /* FavoritesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1EA11F166664EB002701EC /* FavoritesController.m */; };
 		5B1EA122166664EB002701EC /* FavoritesController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B1EA120166664EB002701EC /* FavoritesController.xib */; };
+		5BD2A60D16679F870095D352 /* CALayerExporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD2A60C16679F870095D352 /* CALayerExporter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		5BD2A6181667D4860095D352 /* CheckInController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD2A6161667D4860095D352 /* CheckInController.m */; };
+		5BD2A6191667D4860095D352 /* CheckInController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BD2A6171667D4860095D352 /* CheckInController.xib */; };
+		5BE016FB16686097004C2473 /* CheckInFacebook.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE016F916686096004C2473 /* CheckInFacebook.m */; };
+		5BE016FF1668614D004C2473 /* CheckInFacebook.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BE016FE1668614D004C2473 /* CheckInFacebook.xib */; };
+		5BE0174B166868D9004C2473 /* CheckInFacebookTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE01749166868D9004C2473 /* CheckInFacebookTable.m */; };
+		5BE0174E16686E43004C2473 /* FacebookSDKResources.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BE0174D16686E43004C2473 /* FacebookSDKResources.bundle */; };
+		5BE0175016686E65004C2473 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BE0174F16686E65004C2473 /* FacebookSDK.framework */; };
+		5BE0175216686ECB004C2473 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BE0175116686ECB004C2473 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		5BE0175416686EE3004C2473 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BE0175316686EE3004C2473 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		5BE0175616686EF0004C2473 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BE0175516686EF0004C2473 /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		5BE0175816687449004C2473 /* CheckInFacebookTable.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BE0175716687448004C2473 /* CheckInFacebookTable.xib */; };
 		E70A9786165CBEA000106946 /* buttonCheck.png in Resources */ = {isa = PBXBuildFile; fileRef = E70A9784165CBEA000106946 /* buttonCheck.png */; };
 		E70A9787165CBEA000106946 /* buttonCheck_p.png in Resources */ = {isa = PBXBuildFile; fileRef = E70A9785165CBEA000106946 /* buttonCheck_p.png */; };
 		E70A9793165CC0BE00106946 /* MallDetailMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = E70A978E165CC0BE00106946 /* MallDetailMenu.m */; };
@@ -179,11 +190,25 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5B1EA11A1666558E002701EC /* CALayerExporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CALayerExporter.h; sourceTree = "<group>"; };
-		5B1EA11B1666558E002701EC /* CALayerExporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CALayerExporter.m; sourceTree = "<group>"; };
 		5B1EA11E166664EB002701EC /* FavoritesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesController.h; sourceTree = "<group>"; };
 		5B1EA11F166664EB002701EC /* FavoritesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesController.m; sourceTree = "<group>"; };
 		5B1EA120166664EB002701EC /* FavoritesController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoritesController.xib; sourceTree = "<group>"; };
+		5BD2A60B16679F870095D352 /* CALayerExporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CALayerExporter.h; sourceTree = "<group>"; };
+		5BD2A60C16679F870095D352 /* CALayerExporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CALayerExporter.m; sourceTree = "<group>"; };
+		5BD2A6151667D4860095D352 /* CheckInController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckInController.h; sourceTree = "<group>"; };
+		5BD2A6161667D4860095D352 /* CheckInController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckInController.m; sourceTree = "<group>"; };
+		5BD2A6171667D4860095D352 /* CheckInController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckInController.xib; sourceTree = "<group>"; };
+		5BE016F816686096004C2473 /* CheckInFacebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckInFacebook.h; sourceTree = "<group>"; };
+		5BE016F916686096004C2473 /* CheckInFacebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckInFacebook.m; sourceTree = "<group>"; };
+		5BE016FE1668614D004C2473 /* CheckInFacebook.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckInFacebook.xib; sourceTree = "<group>"; };
+		5BE01748166868D9004C2473 /* CheckInFacebookTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckInFacebookTable.h; sourceTree = "<group>"; };
+		5BE01749166868D9004C2473 /* CheckInFacebookTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckInFacebookTable.m; sourceTree = "<group>"; };
+		5BE0174D16686E43004C2473 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKResources.bundle; sourceTree = "<group>"; };
+		5BE0174F16686E65004C2473 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		5BE0175116686ECB004C2473 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		5BE0175316686EE3004C2473 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		5BE0175516686EF0004C2473 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		5BE0175716687448004C2473 /* CheckInFacebookTable.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckInFacebookTable.xib; sourceTree = "<group>"; };
 		E70A9784165CBEA000106946 /* buttonCheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonCheck.png; sourceTree = "<group>"; };
 		E70A9785165CBEA000106946 /* buttonCheck_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonCheck_p.png; sourceTree = "<group>"; };
 		E70A978D165CC0BE00106946 /* MallDetailMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MallDetailMenu.h; sourceTree = "<group>"; };
@@ -443,6 +468,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BE0175616686EF0004C2473 /* Accounts.framework in Frameworks */,
+				5BE0175416686EE3004C2473 /* AdSupport.framework in Frameworks */,
+				5BE0175216686ECB004C2473 /* Social.framework in Frameworks */,
+				5BE0175016686E65004C2473 /* FacebookSDK.framework in Frameworks */,
+				5BE0174E16686E43004C2473 /* FacebookSDKResources.bundle in Frameworks */,
 				E745C57F166746F70060F453 /* MapKit.framework in Frameworks */,
 				E745C51016660B9F0060F453 /* Security.framework in Frameworks */,
 				E745C50E16660B960060F453 /* SystemConfiguration.framework in Frameworks */,
@@ -475,9 +505,18 @@
 			children = (
 				E7D100CC16648F220067028B /* LocationManager.h */,
 				E7D100CD16648F220067028B /* LocationManager.m */,
+				5BD2A6151667D4860095D352 /* CheckInController.h */,
+				5BD2A6161667D4860095D352 /* CheckInController.m */,
+				5BD2A6171667D4860095D352 /* CheckInController.xib */,
 				E7D100CF16648F450067028B /* CheckInTableView.h */,
 				E7D100D016648F450067028B /* CheckInTableView.m */,
 				E7EBBD5B1664A30700C486E5 /* CheckInTableView.xib */,
+				5BE016F816686096004C2473 /* CheckInFacebook.h */,
+				5BE016F916686096004C2473 /* CheckInFacebook.m */,
+				5BE016FE1668614D004C2473 /* CheckInFacebook.xib */,
+				5BE01748166868D9004C2473 /* CheckInFacebookTable.h */,
+				5BE01749166868D9004C2473 /* CheckInFacebookTable.m */,
+				5BE0175716687448004C2473 /* CheckInFacebookTable.xib */,
 			);
 			path = CheckIn;
 			sourceTree = "<group>";
@@ -597,6 +636,8 @@
 				E73D5A78165B3BE100834886 /* CALayerCamera.m */,
 				E73D5A79165B3BE100834886 /* CALayerFilm.h */,
 				E73D5A7A165B3BE100834886 /* CALayerFilm.m */,
+				5BD2A60B16679F870095D352 /* CALayerExporter.h */,
+				5BD2A60C16679F870095D352 /* CALayerExporter.m */,
 			);
 			path = "calayer-camera";
 			sourceTree = "<group>";
@@ -604,8 +645,6 @@
 		E73D5A7B165B3BE100834886 /* calayer-exporter */ = {
 			isa = PBXGroup;
 			children = (
-				5B1EA11A1666558E002701EC /* CALayerExporter.h */,
-				5B1EA11B1666558E002701EC /* CALayerExporter.m */,
 			);
 			path = "calayer-exporter";
 			sourceTree = "<group>";
@@ -803,14 +842,11 @@
 		E7868208165357C8009A93DB = {
 			isa = PBXGroup;
 			children = (
-				E745C57E166746F70060F453 /* MapKit.framework */,
-				E745C50F16660B9F0060F453 /* Security.framework */,
-				E745C50D16660B960060F453 /* SystemConfiguration.framework */,
-				E7D100D21664958F0067028B /* CoreLocation.framework */,
-				E7D100C916648D200067028B /* MobileCoreServices.framework */,
-				E73D5B09165B418C00834886 /* libxml2.dylib */,
-				E7272F6B1655FC61000D841C /* libsqlite3.0.dylib */,
-				E78682911654A37F009A93DB /* QuartzCore.framework */,
+				5BE0175516686EF0004C2473 /* Accounts.framework */,
+				5BE0175316686EE3004C2473 /* AdSupport.framework */,
+				5BE0175116686ECB004C2473 /* Social.framework */,
+				5BE0174F16686E65004C2473 /* FacebookSDK.framework */,
+				5BE0174D16686E43004C2473 /* FacebookSDKResources.bundle */,
 				E786821D165357C8009A93DB /* Ayala360 */,
 				E7868216165357C8009A93DB /* Frameworks */,
 				E7868214165357C8009A93DB /* Products */,
@@ -828,6 +864,14 @@
 		E7868216165357C8009A93DB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E745C57E166746F70060F453 /* MapKit.framework */,
+				E745C50F16660B9F0060F453 /* Security.framework */,
+				E745C50D16660B960060F453 /* SystemConfiguration.framework */,
+				E7D100D21664958F0067028B /* CoreLocation.framework */,
+				E7D100C916648D200067028B /* MobileCoreServices.framework */,
+				E73D5B09165B418C00834886 /* libxml2.dylib */,
+				E7272F6B1655FC61000D841C /* libsqlite3.0.dylib */,
+				E78682911654A37F009A93DB /* QuartzCore.framework */,
 				E7868217165357C8009A93DB /* UIKit.framework */,
 				E7868219165357C8009A93DB /* Foundation.framework */,
 				E786821B165357C8009A93DB /* CoreGraphics.framework */,
@@ -1132,6 +1176,9 @@
 				E70A9833165E123700106946 /* tabButtonShare.png in Resources */,
 				E7EBBD5C1664A30700C486E5 /* CheckInTableView.xib in Resources */,
 				5B1EA122166664EB002701EC /* FavoritesController.xib in Resources */,
+				5BD2A6191667D4860095D352 /* CheckInController.xib in Resources */,
+				5BE016FF1668614D004C2473 /* CheckInFacebook.xib in Resources */,
+				5BE0175816687449004C2473 /* CheckInFacebookTable.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1218,9 +1265,12 @@
 				E745C561166626600060F453 /* NSCharacterSet_Extensions.m in Sources */,
 				E745C562166626600060F453 /* NSDictionary_JSONExtensions.m in Sources */,
 				E745C563166626600060F453 /* NSScanner_Extensions.m in Sources */,
-				5B1EA11C1666558E002701EC /* CALayerExporter.m in Sources */,
 				5B1EA121166664EB002701EC /* FavoritesController.m in Sources */,
 				E745C583166753740060F453 /* MapAnnotation.m in Sources */,
+				5BD2A60D16679F870095D352 /* CALayerExporter.m in Sources */,
+				5BD2A6181667D4860095D352 /* CheckInController.m in Sources */,
+				5BE016FB16686097004C2473 /* CheckInFacebook.m in Sources */,
+				5BE0174B166868D9004C2473 /* CheckInFacebookTable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1291,6 +1341,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "armv7,armv7s";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Ayala360/Ayala360-Prefix.pch";
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
@@ -1306,6 +1360,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "armv7,armv7s";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Ayala360/Ayala360-Prefix.pch";
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;

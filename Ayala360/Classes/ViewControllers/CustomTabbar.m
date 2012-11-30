@@ -59,7 +59,7 @@
     _navigationController.tabBarItem.image = [UIImage imageNamed:@"tabButtonHome.png"];
     [listControllers addObject:_navigationController];
     
-    _navigationController = [_controllerManager getMenuWithNavWithType:menuTypeSocialShare];
+    _navigationController = [_controllerManager getMenuWithNavWithType:menuTypeCheckInController];
     _navigationController.tabBarItem.image = [UIImage imageNamed:@"tabButtonCheckIn.png"];
     [listControllers addObject:_navigationController];
     

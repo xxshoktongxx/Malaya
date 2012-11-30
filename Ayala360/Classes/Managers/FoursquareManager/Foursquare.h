@@ -31,7 +31,7 @@ typedef enum{
     typeGet,
 }HTTPMethodType;
 
-@protocol FoursquareProtocol;
+@protocol FoursquareDelegate;
 @interface Foursquare : AFHTTPClient <UIWebViewDelegate>{
     /** For application authentication. */
     UIWebView *_webview;
@@ -41,20 +41,28 @@ typedef enum{
     void(^_callback)(void);
     /** Type of request method for specific request. */
     HTTPMethodType *httpMethodType;
+    
+    void(^_success)(id,id);
+    void(^_fail)(id,id);
 }
 
+@property (nonatomic, assign)id<FoursquareDelegate>delegate;
 
-+ (Foursquare *)sharedInstance;
+//+ (Foursquare *)sharedInstance;
 /** Starts the authentication process.*/
 - (void)startAuthentication:(void(^)(void))callback;
 /** Method used when making a urlRequest */
 - (void)requestWithPath:(NSString *)path methodType:(HTTPMethodType)method parameters:(NSDictionary *)parameters success:(id)success fail:(id)fail;
+
+- (void)searchVenuesWithParam:(NSDictionary *)param;
+- (void)checkinWithParam:(NSDictionary *)param;
+//- (void)addPostParam:(NSDictionary *)param;
 @end
 
-@protocol FoursquareProtocol <NSObject>
+@protocol FoursquareDelegate <NSObject>
 @required
-- (void)didSucceedRequest:(AFHTTPRequestOperation *)operation responseObject:(id)object;
-- (void)didFailRequest:(AFHTTPRequestOperation *)operation error:(NSError *)error;
+- (void)_didSucceedRequest:(AFHTTPRequestOperation *)operation responseObject:(id)object;
+- (void)_didFailRequest:(AFHTTPRequestOperation *)operation error:(NSError *)error;
 @end;
 
 /**

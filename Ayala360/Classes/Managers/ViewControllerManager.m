@@ -15,6 +15,8 @@
 #import "SocialShare.h"
 #import "CheckInTableView.h"
 #import "FavoritesController.h"
+#import "CheckInController.h"
+#import "CheckInFacebookTable.h"
 
 @implementation ViewControllerManager
 
@@ -36,8 +38,11 @@
             _menu = [[MallMenu alloc]initWithNibName:@"MallMenu" bundle:nil];
             _menu.title = @"Ayala Malls";
             break;
-        case menuTypeCheckIn:
+        case menuTypeCheckInTable:
             _menu = [[CheckInTableView alloc]initWithNibName:@"CheckInTableView" bundle:nil];
+            break;
+        case menuTypeCheckInFacebook:
+            _menu = (BaseController *)[[CheckInFacebookTable alloc]initWithNibName:@"CheckInFacebookTable" bundle:nil];
             break;
         default:
             break;
@@ -58,6 +63,10 @@
             break;
         case menuTypeFavorites:
             _menu = [[FavoritesController alloc]initWithNibName:@"FavoritesController" bundle:nil];
+            _navigationController = [[UINavigationController alloc]initWithRootViewController:_menu];
+            break;
+        case menuTypeCheckInController:
+            _menu = [[CheckInController alloc]initWithNibName:@"CheckInController" bundle:nil];
             _navigationController = [[UINavigationController alloc]initWithRootViewController:_menu];
             break;
         default:
