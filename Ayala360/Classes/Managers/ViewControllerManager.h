@@ -15,9 +15,10 @@ typedef enum{
     menuTypeMallMenu,
     menuTypeMallDetailMenu,
     menuTypeSocialShare,
-    menuTypeCheckInTable,
+//    menuTypeCheckInTable,
     menuTypeFavorites,
     menuTypeCheckInController,
+    menuTypeCheckInFoursquare,
     menuTypeCheckInFacebook,
 }MenuType;
 

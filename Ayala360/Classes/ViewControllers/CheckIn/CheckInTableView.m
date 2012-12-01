@@ -12,7 +12,10 @@
 
 #define METERS_PER_MILE 150
 #define TABLE_FRAME @"{{0, 150}, {320, 237}}"
-@implementation CheckInTableView
+@implementation CheckInTableView{
+    /** Hold the infomation of selected place. */
+    NSDictionary *_selectedPlace;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -25,36 +28,75 @@
 #pragma mark - 
 #pragma mark Private Method
 - (void)authenticate{
-    _foursquare = [AppManager sharedInstance].foursquareManager;
-    [_foursquare startAuthentication:^{
-        _foursquare.delegate = self;
-        [self unrenderSpinner];
-        [self loadLocationManager];
-    }];
+    if (_checkIn == checkInFaceBook) {
+        _fbManager = [AppManager sharedInstance].fbManager;
+        [_fbManager login:^(void){
+            [self loadLocationManager];
+        }];
+    }
+    else if( _checkIn == checkInFoursqaure){
+        _foursquare = [AppManager sharedInstance].foursquareManager;
+        [_foursquare startAuthentication:^{
+            _foursquare.delegate = self;
+            [self unrenderSpinner];
+            [self loadLocationManager];
+        }];
+    }
 }
-
-- (void)updateUi{
-    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(_currentLocation, 0.5*METERS_PER_MILE, 0.5*METERS_PER_MILE);
-    MKCoordinateRegion adjustedRegion = [_mapview regionThatFits:viewRegion];
-    [_mapview setRegion:adjustedRegion animated:YES];
-}
-
 //navigationbar left button method
 - (void)onHome{
     self.customTabbar = [self.controllerManager getCustomTabbar];
     [self.customTabbar onHome];
 }
 
+- (void)postCheckIn{
+    //Bring the overlay in front;
+    [self unrenderSpinner];
+    [self renderSpinner];
+    
+    if(_checkIn == checkInFoursqaure){
+        //Foursquare checkin with parameters
+        NSString *objectId = [_selectedPlace objectForKey:@"id"];
+        NSDictionary *param = [NSMutableDictionary dictionaryWithObjectsAndKeys:objectId, @"venueId", @"public,facebook,twitter", @"broadcast",_textViewShout.text?:@"",@"shout", nil];
+        [_foursquare checkinWithParam:param];
+    }
+    else if(_checkIn == checkInFaceBook){
+        //Facebook checkin with parameters
+        NSString *objectId = [_selectedPlace objectForKey:@"id"];
+        NSDictionary *param = [NSMutableDictionary dictionaryWithObjectsAndKeys:objectId, @"place", _textViewShout.text?:@"", @"message", nil];
+        [_fbManager publishStory:param callback:^(void){
+            [_textViewShout resignFirstResponder];
+            [self unrenderCheckInView];
+        }];
+    }
+}
+
+- (void)cancelCheckIn{
+
+}
+
 #pragma mark Display methods
 - (void)renderNearByPlaces{
+    NSString * name = nil;
+    NSString * address = nil;
+    NSNumber * latitude = nil;
+    NSNumber * longitude = nil;
+    
     for (int x = 0; x<_listNearBy.count; x++) {
-        NSString * name = [[_listNearBy objectAtIndex:x] objectForKey:@"name"];
-        NSNumber * lat = [[[_listNearBy objectAtIndex:x] objectForKey:@"location"] objectForKey:@"lat"];
-        NSNumber * lng = [[[_listNearBy objectAtIndex:x] objectForKey:@"location"] objectForKey:@"lng"];
-        NSString * address = [[[_listNearBy objectAtIndex:x] objectForKey:@"location"] objectForKey:@"address"];       
+        NSDictionary *data = [_listNearBy objectAtIndex:x];
+        name = [data objectForKey:@"name"];
+        if(_checkIn == checkInFoursqaure){
+            latitude = [[data objectForKey:@"location"] objectForKey:@"lat"];
+            longitude = [[data objectForKey:@"location"] objectForKey:@"lng"];
+        }
+        else if (_checkIn == checkInFaceBook){
+            latitude = [[data objectForKey:@"location"] objectForKey:@"latitude"];
+            longitude = [[data objectForKey:@"location"] objectForKey:@"longitude"];
+        }
+        address = [[data objectForKey:@"location"] objectForKey:@"address"];
         CLLocationCoordinate2D coordinate;
-        coordinate.latitude = lat.doubleValue;
-        coordinate.longitude = lng.doubleValue;
+        coordinate.latitude = latitude.doubleValue;
+        coordinate.longitude = longitude.doubleValue;
         MapAnnotation *annotation = [[MapAnnotation alloc] initWithName:name address:address index:x coordinate:coordinate] ;
         [_mapview addAnnotation:annotation];
     }
@@ -85,11 +127,16 @@
         
         UIButton *buttonPost = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         buttonPost.frame = CGRectMake(_textViewShout.center.x, 130, 50, 30);
-        buttonPost.titleLabel.text = @"Post";
-        [buttonPost addTarget:self action:@selector(checkIn) forControlEvents:UIControlEventTouchUpInside];
+        [buttonPost setTitle:@"Post" forState:UIControlStateNormal];
+        [buttonPost addTarget:self action:@selector(postCheckIn) forControlEvents:UIControlEventTouchUpInside];
         [_viewCheckInShout addSubview:buttonPost];
+        
+        UIButton *buttonCancel = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        buttonCancel.frame = CGRectMake(0, 130, 50, 30);
+        [buttonCancel setTitle:@"Cancel" forState:UIControlStateNormal];
+        [buttonCancel addTarget:self action:@selector(cancelCheckIn) forControlEvents:UIControlEventTouchUpInside];
+        [_viewCheckInShout addSubview:buttonCancel];
     }
-    [self renderSpinner];
     _viewCheckInShout.hidden = NO;
 }
 
@@ -111,11 +158,20 @@
         [self.view addSubview:_viewSpinnerContainer];
     }
     _viewSpinnerContainer.hidden = NO;
+    [self.view bringSubviewToFront:_viewSpinnerContainer];
 }
 
 - (void)unrenderSpinner{
     _viewSpinnerContainer.hidden = YES;
 }
+
+- (void)updateUi{
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(_currentLocation, 0.5*METERS_PER_MILE, 0.5*METERS_PER_MILE);
+    MKCoordinateRegion adjustedRegion = [_mapview regionThatFits:viewRegion];
+    [_mapview setRegion:adjustedRegion animated:YES];
+    [_tableViewNearby reloadData];
+}
+
 
 #pragma mark -
 #pragma mark MKMap delegate
@@ -143,11 +199,13 @@
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view NS_AVAILABLE(NA, 4_0){
     MapAnnotation *annotation = [view annotation];
-    [_listNearBy objectAtIndex:annotation.index];
-    
-    //Find the selected place in the nearby table;
-    NSIndexPath *index = [NSIndexPath indexPathForRow:annotation.index inSection:0];
-    [_tableViewNearby scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    if([annotation respondsToSelector:@selector(setIndex:)]){
+        [_listNearBy objectAtIndex:annotation.index];
+        
+        //Find the selected place in the nearby table;
+        NSIndexPath *index = [NSIndexPath indexPathForRow:annotation.index inSection:0];
+        [_tableViewNearby scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    }
 }
 
 #pragma mark --
@@ -161,16 +219,28 @@
 #pragma mark Location Protocol
 - (void)_locationManagerNotification:(CLLocation *)location{
     NSLog(@"User location found");
-    
-    //Foursquare search with param
     NSString *coor = [NSString stringWithFormat:@"%f,%f",location.coordinate.latitude,location.coordinate.longitude];
-    NSDictionary *param = [NSMutableDictionary dictionaryWithObjectsAndKeys:coor, @"ll", nil];
-    [_foursquare searchVenuesWithParam:param];
-    
-    //For map render
     _currentLocation.latitude = location.coordinate.latitude;
     _currentLocation.longitude = location.coordinate.longitude;
-    [self updateUi];
+    
+    NSMutableDictionary *param = nil;
+    //Fetch nearby places based on checkin type
+    if (_checkIn == checkInFaceBook) {
+        param = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                 @"place",@"type",coor,@"center",@"1000",@"distance",
+                 nil];
+        [_fbManager getNearBy:param callback:^(id result){
+            NSLog(@"result:%@",result);
+            _listNearBy = [result objectForKey:@"data"];
+            [self updateUi];
+            [self unrenderSpinner];
+            [self renderNearByPlaces];
+        }];
+    }
+    else if(_checkIn == checkInFoursqaure){
+        param = [NSMutableDictionary dictionaryWithObjectsAndKeys:coor, @"ll", nil];
+        [_foursquare searchVenuesWithParam:param];
+    }
 }
 
 #pragma mark - 
@@ -219,11 +289,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
-    //Foursquare checkin with parameters
-    NSString *objectId = [[_listNearBy objectAtIndex:indexPath.row] objectForKey:@"id"];
-    NSDictionary *param = [NSMutableDictionary dictionaryWithObjectsAndKeys:objectId, @"venueId", @"public,facebook,twitter", @"broadcast",@"sample shout",@"shout", nil];
-    [_foursquare checkinWithParam:param];
-//    [self renderCheckInView];
+    _selectedPlace = [_listNearBy objectAtIndex:indexPath.row];
+    [self renderCheckInView];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -249,12 +316,15 @@
     if (range.location != NSNotFound) {
         NSLog(@"Succes on VENUE SEARCH");
         _listNearBy = [[[[data objectForKey:@"response"] objectForKey:@"groups"] objectAtIndex:0] objectForKey:@"items"];
+        [self updateUi];
+        [self unrenderSpinner];
         [self renderNearByPlaces];
-        [_tableViewNearby reloadData];
     }
     range = [requestUrl rangeOfString:@"checkins/add"];
     if (range.location != NSNotFound) {
         NSLog(@"Success on CHECKIN");
+        [_textViewShout resignFirstResponder];
+        [self unrenderCheckInView];
     }
 }
 - (void)_didFailRequest:(AFHTTPRequestOperation *)operation error:(NSError *)error{

@@ -9,6 +9,12 @@
 #import "AppManager.h"
 #import <MapKit/MapKit.h>
 
+
+typedef enum {
+    checkInFoursqaure,
+    checkInFaceBook,
+}CheckInType;
+
 @interface CheckInTableView : BaseController <UITableViewDataSource,UITableViewDelegate,LocationManagerProtocol,MKMapViewDelegate,FoursquareDelegate>{
     /** Holds the instance of table view for nearby places. */
     UITableView *_tableViewNearby;
@@ -29,5 +35,7 @@
     //Manager
     Foursquare *_foursquare;
     LocationManager *_location;
+    FacebookManager *_fbManager;
 }
+@property (nonatomic, assign) CheckInType checkIn;
 @end

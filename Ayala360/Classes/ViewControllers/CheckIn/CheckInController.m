@@ -31,7 +31,7 @@
 
 
 - (IBAction)on4sqr:(id)sender{
-    _controller = [self.controllerManager getMenuWithType:menuTypeCheckInTable];
+    _controller = [self.controllerManager getMenuWithType:menuTypeCheckInFoursquare];
     [self.navigationController pushViewController:_controller animated:YES];
 }
 

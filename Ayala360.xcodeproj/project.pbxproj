@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B03B3DA166A386400CC4D33 /* FacebookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B03B3D6166A386400CC4D33 /* FacebookManager.m */; };
+		5B03B3DB166A386400CC4D33 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B03B3D7166A386400CC4D33 /* FacebookSDK.framework */; };
+		5B03B3DC166A386400CC4D33 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5B03B3D8166A386400CC4D33 /* FacebookSDKResources.bundle */; };
+		5B03B3DD166A386400CC4D33 /* FBUserSettingsViewResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5B03B3D9166A386400CC4D33 /* FBUserSettingsViewResources.bundle */; };
 		5B1EA121166664EB002701EC /* FavoritesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1EA11F166664EB002701EC /* FavoritesController.m */; };
 		5B1EA122166664EB002701EC /* FavoritesController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B1EA120166664EB002701EC /* FavoritesController.xib */; };
 		5BD2A60D16679F870095D352 /* CALayerExporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD2A60C16679F870095D352 /* CALayerExporter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -15,8 +19,6 @@
 		5BE016FB16686097004C2473 /* CheckInFacebook.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE016F916686096004C2473 /* CheckInFacebook.m */; };
 		5BE016FF1668614D004C2473 /* CheckInFacebook.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BE016FE1668614D004C2473 /* CheckInFacebook.xib */; };
 		5BE0174B166868D9004C2473 /* CheckInFacebookTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE01749166868D9004C2473 /* CheckInFacebookTable.m */; };
-		5BE0174E16686E43004C2473 /* FacebookSDKResources.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BE0174D16686E43004C2473 /* FacebookSDKResources.bundle */; };
-		5BE0175016686E65004C2473 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BE0174F16686E65004C2473 /* FacebookSDK.framework */; };
 		5BE0175216686ECB004C2473 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BE0175116686ECB004C2473 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		5BE0175416686EE3004C2473 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BE0175316686EE3004C2473 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		5BE0175616686EF0004C2473 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BE0175516686EF0004C2473 /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -190,6 +192,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B03B3D5166A386400CC4D33 /* FacebookManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookManager.h; sourceTree = "<group>"; };
+		5B03B3D6166A386400CC4D33 /* FacebookManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookManager.m; sourceTree = "<group>"; };
+		5B03B3D7166A386400CC4D33 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		5B03B3D8166A386400CC4D33 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKResources.bundle; sourceTree = "<group>"; };
+		5B03B3D9166A386400CC4D33 /* FBUserSettingsViewResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FBUserSettingsViewResources.bundle; sourceTree = "<group>"; };
 		5B1EA11E166664EB002701EC /* FavoritesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesController.h; sourceTree = "<group>"; };
 		5B1EA11F166664EB002701EC /* FavoritesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesController.m; sourceTree = "<group>"; };
 		5B1EA120166664EB002701EC /* FavoritesController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoritesController.xib; sourceTree = "<group>"; };
@@ -203,8 +210,6 @@
 		5BE016FE1668614D004C2473 /* CheckInFacebook.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckInFacebook.xib; sourceTree = "<group>"; };
 		5BE01748166868D9004C2473 /* CheckInFacebookTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckInFacebookTable.h; sourceTree = "<group>"; };
 		5BE01749166868D9004C2473 /* CheckInFacebookTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckInFacebookTable.m; sourceTree = "<group>"; };
-		5BE0174D16686E43004C2473 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKResources.bundle; sourceTree = "<group>"; };
-		5BE0174F16686E65004C2473 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		5BE0175116686ECB004C2473 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		5BE0175316686EE3004C2473 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		5BE0175516686EF0004C2473 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -471,8 +476,6 @@
 				5BE0175616686EF0004C2473 /* Accounts.framework in Frameworks */,
 				5BE0175416686EE3004C2473 /* AdSupport.framework in Frameworks */,
 				5BE0175216686ECB004C2473 /* Social.framework in Frameworks */,
-				5BE0175016686E65004C2473 /* FacebookSDK.framework in Frameworks */,
-				5BE0174E16686E43004C2473 /* FacebookSDKResources.bundle in Frameworks */,
 				E745C57F166746F70060F453 /* MapKit.framework in Frameworks */,
 				E745C51016660B9F0060F453 /* Security.framework in Frameworks */,
 				E745C50E16660B960060F453 /* SystemConfiguration.framework in Frameworks */,
@@ -484,12 +487,25 @@
 				E7868218165357C8009A93DB /* UIKit.framework in Frameworks */,
 				E786821A165357C8009A93DB /* Foundation.framework in Frameworks */,
 				E786821C165357C8009A93DB /* CoreGraphics.framework in Frameworks */,
+				5B03B3DB166A386400CC4D33 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B03B3D4166A386400CC4D33 /* Facebook */ = {
+			isa = PBXGroup;
+			children = (
+				5B03B3D5166A386400CC4D33 /* FacebookManager.h */,
+				5B03B3D6166A386400CC4D33 /* FacebookManager.m */,
+				5B03B3D7166A386400CC4D33 /* FacebookSDK.framework */,
+				5B03B3D8166A386400CC4D33 /* FacebookSDKResources.bundle */,
+				5B03B3D9166A386400CC4D33 /* FBUserSettingsViewResources.bundle */,
+			);
+			path = Facebook;
+			sourceTree = "<group>";
+		};
 		5B1EA11D1666649C002701EC /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
@@ -845,8 +861,6 @@
 				5BE0175516686EF0004C2473 /* Accounts.framework */,
 				5BE0175316686EE3004C2473 /* AdSupport.framework */,
 				5BE0175116686ECB004C2473 /* Social.framework */,
-				5BE0174F16686E65004C2473 /* FacebookSDK.framework */,
-				5BE0174D16686E43004C2473 /* FacebookSDKResources.bundle */,
 				E786821D165357C8009A93DB /* Ayala360 */,
 				E7868216165357C8009A93DB /* Frameworks */,
 				E7868214165357C8009A93DB /* Products */,
@@ -923,6 +937,7 @@
 		E786823B16535885009A93DB /* 3rdParty */ = {
 			isa = PBXGroup;
 			children = (
+				5B03B3D4166A386400CC4D33 /* Facebook */,
 				E745C554166626600060F453 /* CDataScanner.h */,
 				E745C555166626600060F453 /* CDataScanner.m */,
 				E745C556166626600060F453 /* Extensions */,
@@ -1179,6 +1194,8 @@
 				5BD2A6191667D4860095D352 /* CheckInController.xib in Resources */,
 				5BE016FF1668614D004C2473 /* CheckInFacebook.xib in Resources */,
 				5BE0175816687449004C2473 /* CheckInFacebookTable.xib in Resources */,
+				5B03B3DC166A386400CC4D33 /* FacebookSDKResources.bundle in Resources */,
+				5B03B3DD166A386400CC4D33 /* FBUserSettingsViewResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1271,6 +1288,7 @@
 				5BD2A6181667D4860095D352 /* CheckInController.m in Sources */,
 				5BE016FB16686097004C2473 /* CheckInFacebook.m in Sources */,
 				5BE0174B166868D9004C2473 /* CheckInFacebookTable.m in Sources */,
+				5B03B3DA166A386400CC4D33 /* FacebookManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1344,6 +1362,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Ayala360/3rdParty/Facebook\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Ayala360/Ayala360-Prefix.pch";
@@ -1363,6 +1382,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Ayala360/3rdParty/Facebook\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Ayala360/Ayala360-Prefix.pch";

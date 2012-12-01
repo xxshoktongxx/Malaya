@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AppManager.h"
+#import "FacebookManager.h"
 
 @class RootViewController;
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
@@ -15,4 +16,5 @@
 
 @property (strong, nonatomic) RootViewController *rootViewController;
 @property (nonatomic, strong) AppManager *appManager;
+@property (strong, nonatomic) FacebookManager *fbManager;
 @end

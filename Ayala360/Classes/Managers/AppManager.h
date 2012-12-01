@@ -14,6 +14,7 @@
 #import "DataManager.h"
 #import "LocationManager.h"
 #import "Foursquare.h"
+#import "FacebookManager.h"
 
 @interface AppManager : NSObject
 @property (nonatomic, retain) __strong ViewControllerManager *controllerManager;
@@ -22,6 +23,7 @@
 @property (nonatomic, retain) __strong DataManager *dataManager;
 @property (nonatomic, retain) __strong LocationManager *locationManager;
 @property (nonatomic, retain) __strong Foursquare *foursquareManager;
+@property (nonatomic, retain) __strong FacebookManager *fbManager;
 
 +(AppManager *)sharedInstance;
 - (void)loadManagers;

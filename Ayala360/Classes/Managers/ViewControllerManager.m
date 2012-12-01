@@ -38,11 +38,13 @@
             _menu = [[MallMenu alloc]initWithNibName:@"MallMenu" bundle:nil];
             _menu.title = @"Ayala Malls";
             break;
-        case menuTypeCheckInTable:
-            _menu = [[CheckInTableView alloc]initWithNibName:@"CheckInTableView" bundle:nil];
+        case menuTypeCheckInFoursquare:
+            _menu = (CheckInTableView *)[[CheckInTableView alloc]initWithNibName:@"CheckInTableView" bundle:nil];
+            [(CheckInTableView *)_menu setCheckIn:checkInFoursqaure];
             break;
         case menuTypeCheckInFacebook:
-            _menu = (BaseController *)[[CheckInFacebookTable alloc]initWithNibName:@"CheckInFacebookTable" bundle:nil];
+            _menu = (CheckInTableView *)[[CheckInTableView alloc]initWithNibName:@"CheckInTableView" bundle:nil];
+            [(CheckInTableView *)_menu setCheckIn:checkInFaceBook];
             break;
         default:
             break;

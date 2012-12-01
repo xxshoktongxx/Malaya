@@ -20,6 +20,7 @@ static AppManager * _appManager = nil;
 {
     if (_appManager == nil) {
         _appManager = [[[self class]alloc]init];
+        [_appManager loadManagers];
     }
     
     return _appManager;
@@ -30,6 +31,7 @@ static AppManager * _appManager = nil;
     _dijkstra = [[Dijkstra alloc]init];
     _locationManager = [[LocationManager alloc]init];
     _foursquareManager = [[Foursquare alloc]init];
+    _fbManager = [[FacebookManager alloc]init];
     _sqlManager = [[SqlManager alloc]initDatabaseWithNameNoExt:kDB_NAME];
 //    [self createSqlTables];
 //    [self processPlist];
