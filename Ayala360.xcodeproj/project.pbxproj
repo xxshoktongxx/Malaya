@@ -13,16 +13,13 @@
 		5B03B3DD166A386400CC4D33 /* FBUserSettingsViewResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5B03B3D9166A386400CC4D33 /* FBUserSettingsViewResources.bundle */; };
 		5B1EA121166664EB002701EC /* FavoritesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1EA11F166664EB002701EC /* FavoritesController.m */; };
 		5B1EA122166664EB002701EC /* FavoritesController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B1EA120166664EB002701EC /* FavoritesController.xib */; };
+		5B6D8F2F166B351600BF036A /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B6D8F2E166B351600BF036A /* Twitter.framework */; };
 		5BD2A60D16679F870095D352 /* CALayerExporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD2A60C16679F870095D352 /* CALayerExporter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		5BD2A6181667D4860095D352 /* CheckInController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD2A6161667D4860095D352 /* CheckInController.m */; };
 		5BD2A6191667D4860095D352 /* CheckInController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BD2A6171667D4860095D352 /* CheckInController.xib */; };
-		5BE016FB16686097004C2473 /* CheckInFacebook.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE016F916686096004C2473 /* CheckInFacebook.m */; };
-		5BE016FF1668614D004C2473 /* CheckInFacebook.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BE016FE1668614D004C2473 /* CheckInFacebook.xib */; };
-		5BE0174B166868D9004C2473 /* CheckInFacebookTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE01749166868D9004C2473 /* CheckInFacebookTable.m */; };
 		5BE0175216686ECB004C2473 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BE0175116686ECB004C2473 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		5BE0175416686EE3004C2473 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BE0175316686EE3004C2473 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		5BE0175616686EF0004C2473 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BE0175516686EF0004C2473 /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		5BE0175816687449004C2473 /* CheckInFacebookTable.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BE0175716687448004C2473 /* CheckInFacebookTable.xib */; };
 		E70A9786165CBEA000106946 /* buttonCheck.png in Resources */ = {isa = PBXBuildFile; fileRef = E70A9784165CBEA000106946 /* buttonCheck.png */; };
 		E70A9787165CBEA000106946 /* buttonCheck_p.png in Resources */ = {isa = PBXBuildFile; fileRef = E70A9785165CBEA000106946 /* buttonCheck_p.png */; };
 		E70A9793165CC0BE00106946 /* MallDetailMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = E70A978E165CC0BE00106946 /* MallDetailMenu.m */; };
@@ -66,8 +63,8 @@
 		E70A97DF165CC30300106946 /* mallLogo_trinoma_80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = E70A97CD165CC30300106946 /* mallLogo_trinoma_80x80.png */; };
 		E70A97E0165CC30300106946 /* mallLogo_trinoma_pressed_80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = E70A97CE165CC30300106946 /* mallLogo_trinoma_pressed_80x80.png */; };
 		E70A97E3165CD10000106946 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E70A97E2165CD10000106946 /* DataManager.m */; };
-		E70A97F8165DF75E00106946 /* SocialShare.m in Sources */ = {isa = PBXBuildFile; fileRef = E70A97F6165DF75D00106946 /* SocialShare.m */; };
-		E70A97F9165DF75E00106946 /* SocialShare.xib in Resources */ = {isa = PBXBuildFile; fileRef = E70A97F7165DF75E00106946 /* SocialShare.xib */; };
+		E70A97F8165DF75E00106946 /* SocialShareController.m in Sources */ = {isa = PBXBuildFile; fileRef = E70A97F6165DF75D00106946 /* SocialShareController.m */; };
+		E70A97F9165DF75E00106946 /* SocialShareController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E70A97F7165DF75E00106946 /* SocialShareController.xib */; };
 		E70A980A165E071C00106946 /* buttonNavigationBack.png in Resources */ = {isa = PBXBuildFile; fileRef = E70A9809165E071C00106946 /* buttonNavigationBack.png */; };
 		E70A982A165E123700106946 /* tabButtonCheckIn_p.png in Resources */ = {isa = PBXBuildFile; fileRef = E70A9820165E123700106946 /* tabButtonCheckIn_p.png */; };
 		E70A982B165E123700106946 /* tabButtonCheckIn.png in Resources */ = {isa = PBXBuildFile; fileRef = E70A9821165E123700106946 /* tabButtonCheckIn.png */; };
@@ -200,20 +197,15 @@
 		5B1EA11E166664EB002701EC /* FavoritesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesController.h; sourceTree = "<group>"; };
 		5B1EA11F166664EB002701EC /* FavoritesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesController.m; sourceTree = "<group>"; };
 		5B1EA120166664EB002701EC /* FavoritesController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoritesController.xib; sourceTree = "<group>"; };
+		5B6D8F2E166B351600BF036A /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		5BD2A60B16679F870095D352 /* CALayerExporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CALayerExporter.h; sourceTree = "<group>"; };
 		5BD2A60C16679F870095D352 /* CALayerExporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CALayerExporter.m; sourceTree = "<group>"; };
 		5BD2A6151667D4860095D352 /* CheckInController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckInController.h; sourceTree = "<group>"; };
 		5BD2A6161667D4860095D352 /* CheckInController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckInController.m; sourceTree = "<group>"; };
 		5BD2A6171667D4860095D352 /* CheckInController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckInController.xib; sourceTree = "<group>"; };
-		5BE016F816686096004C2473 /* CheckInFacebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckInFacebook.h; sourceTree = "<group>"; };
-		5BE016F916686096004C2473 /* CheckInFacebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckInFacebook.m; sourceTree = "<group>"; };
-		5BE016FE1668614D004C2473 /* CheckInFacebook.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckInFacebook.xib; sourceTree = "<group>"; };
-		5BE01748166868D9004C2473 /* CheckInFacebookTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckInFacebookTable.h; sourceTree = "<group>"; };
-		5BE01749166868D9004C2473 /* CheckInFacebookTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckInFacebookTable.m; sourceTree = "<group>"; };
 		5BE0175116686ECB004C2473 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		5BE0175316686EE3004C2473 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		5BE0175516686EF0004C2473 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
-		5BE0175716687448004C2473 /* CheckInFacebookTable.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckInFacebookTable.xib; sourceTree = "<group>"; };
 		E70A9784165CBEA000106946 /* buttonCheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonCheck.png; sourceTree = "<group>"; };
 		E70A9785165CBEA000106946 /* buttonCheck_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonCheck_p.png; sourceTree = "<group>"; };
 		E70A978D165CC0BE00106946 /* MallDetailMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MallDetailMenu.h; sourceTree = "<group>"; };
@@ -260,9 +252,9 @@
 		E70A97CE165CC30300106946 /* mallLogo_trinoma_pressed_80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mallLogo_trinoma_pressed_80x80.png; sourceTree = "<group>"; };
 		E70A97E1165CD10000106946 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		E70A97E2165CD10000106946 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
-		E70A97F5165DF75C00106946 /* SocialShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialShare.h; sourceTree = "<group>"; };
-		E70A97F6165DF75D00106946 /* SocialShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialShare.m; sourceTree = "<group>"; };
-		E70A97F7165DF75E00106946 /* SocialShare.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SocialShare.xib; sourceTree = "<group>"; };
+		E70A97F5165DF75C00106946 /* SocialShareController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialShareController.h; sourceTree = "<group>"; };
+		E70A97F6165DF75D00106946 /* SocialShareController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialShareController.m; sourceTree = "<group>"; };
+		E70A97F7165DF75E00106946 /* SocialShareController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SocialShareController.xib; sourceTree = "<group>"; };
 		E70A9809165E071C00106946 /* buttonNavigationBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonNavigationBack.png; sourceTree = "<group>"; };
 		E70A9820165E123700106946 /* tabButtonCheckIn_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabButtonCheckIn_p.png; sourceTree = "<group>"; };
 		E70A9821165E123700106946 /* tabButtonCheckIn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabButtonCheckIn.png; sourceTree = "<group>"; };
@@ -473,6 +465,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B6D8F2F166B351600BF036A /* Twitter.framework in Frameworks */,
 				5BE0175616686EF0004C2473 /* Accounts.framework in Frameworks */,
 				5BE0175416686EE3004C2473 /* AdSupport.framework in Frameworks */,
 				5BE0175216686ECB004C2473 /* Social.framework in Frameworks */,
@@ -527,12 +520,6 @@
 				E7D100CF16648F450067028B /* CheckInTableView.h */,
 				E7D100D016648F450067028B /* CheckInTableView.m */,
 				E7EBBD5B1664A30700C486E5 /* CheckInTableView.xib */,
-				5BE016F816686096004C2473 /* CheckInFacebook.h */,
-				5BE016F916686096004C2473 /* CheckInFacebook.m */,
-				5BE016FE1668614D004C2473 /* CheckInFacebook.xib */,
-				5BE01748166868D9004C2473 /* CheckInFacebookTable.h */,
-				5BE01749166868D9004C2473 /* CheckInFacebookTable.m */,
-				5BE0175716687448004C2473 /* CheckInFacebookTable.xib */,
 			);
 			path = CheckIn;
 			sourceTree = "<group>";
@@ -858,6 +845,7 @@
 		E7868208165357C8009A93DB = {
 			isa = PBXGroup;
 			children = (
+				5B6D8F2E166B351600BF036A /* Twitter.framework */,
 				5BE0175516686EF0004C2473 /* Accounts.framework */,
 				5BE0175316686EE3004C2473 /* AdSupport.framework */,
 				5BE0175116686ECB004C2473 /* Social.framework */,
@@ -1055,9 +1043,9 @@
 		E7D100CB16648F120067028B /* SocialModule */ = {
 			isa = PBXGroup;
 			children = (
-				E70A97F5165DF75C00106946 /* SocialShare.h */,
-				E70A97F6165DF75D00106946 /* SocialShare.m */,
-				E70A97F7165DF75E00106946 /* SocialShare.xib */,
+				E70A97F5165DF75C00106946 /* SocialShareController.h */,
+				E70A97F6165DF75D00106946 /* SocialShareController.m */,
+				E70A97F7165DF75E00106946 /* SocialShareController.xib */,
 			);
 			path = SocialModule;
 			sourceTree = "<group>";
@@ -1177,7 +1165,7 @@
 				E70A97DE165CC30300106946 /* mallLogo_marquee_pressed_80x80.png in Resources */,
 				E70A97DF165CC30300106946 /* mallLogo_trinoma_80x80.png in Resources */,
 				E70A97E0165CC30300106946 /* mallLogo_trinoma_pressed_80x80.png in Resources */,
-				E70A97F9165DF75E00106946 /* SocialShare.xib in Resources */,
+				E70A97F9165DF75E00106946 /* SocialShareController.xib in Resources */,
 				E70A980A165E071C00106946 /* buttonNavigationBack.png in Resources */,
 				E70A982A165E123700106946 /* tabButtonCheckIn_p.png in Resources */,
 				E70A982B165E123700106946 /* tabButtonCheckIn.png in Resources */,
@@ -1192,8 +1180,6 @@
 				E7EBBD5C1664A30700C486E5 /* CheckInTableView.xib in Resources */,
 				5B1EA122166664EB002701EC /* FavoritesController.xib in Resources */,
 				5BD2A6191667D4860095D352 /* CheckInController.xib in Resources */,
-				5BE016FF1668614D004C2473 /* CheckInFacebook.xib in Resources */,
-				5BE0175816687449004C2473 /* CheckInFacebookTable.xib in Resources */,
 				5B03B3DC166A386400CC4D33 /* FacebookSDKResources.bundle in Resources */,
 				5B03B3DD166A386400CC4D33 /* FBUserSettingsViewResources.bundle in Resources */,
 			);
@@ -1259,7 +1245,7 @@
 				E70A9793165CC0BE00106946 /* MallDetailMenu.m in Sources */,
 				E70A9795165CC0BE00106946 /* MallMenu.m in Sources */,
 				E70A97E3165CD10000106946 /* DataManager.m in Sources */,
-				E70A97F8165DF75E00106946 /* SocialShare.m in Sources */,
+				E70A97F8165DF75E00106946 /* SocialShareController.m in Sources */,
 				E7D100CE16648F220067028B /* LocationManager.m in Sources */,
 				E7D100D116648F450067028B /* CheckInTableView.m in Sources */,
 				E745C50416660B540060F453 /* AFHTTPClient.m in Sources */,
@@ -1286,8 +1272,6 @@
 				E745C583166753740060F453 /* MapAnnotation.m in Sources */,
 				5BD2A60D16679F870095D352 /* CALayerExporter.m in Sources */,
 				5BD2A6181667D4860095D352 /* CheckInController.m in Sources */,
-				5BE016FB16686097004C2473 /* CheckInFacebook.m in Sources */,
-				5BE0174B166868D9004C2473 /* CheckInFacebookTable.m in Sources */,
 				5B03B3DA166A386400CC4D33 /* FacebookManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1358,7 +1342,7 @@
 		E7868238165357C8009A93DB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "armv7,armv7s";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1378,7 +1362,7 @@
 		E7868239165357C8009A93DB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "armv7,armv7s";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",

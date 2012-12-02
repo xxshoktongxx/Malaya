@@ -9,11 +9,13 @@
 #import "AFHTTPRequestOperation.h"
 #import "NSDictionary_JSONExtensions.h"
 #import "MapAnnotation.h"
+#import <Social/Social.h>
+#import <Accounts/Accounts.h>
 
 #define METERS_PER_MILE 150
 #define TABLE_FRAME @"{{0, 150}, {320, 237}}"
 @implementation CheckInTableView{
-    /** Hold the infomation of selected place. */
+    /** Holds the infomation of selected place. */
     NSDictionary *_selectedPlace;
 }
 
@@ -25,35 +27,58 @@
     return self;
 }
 
-#pragma mark - 
+#pragma mark -
 #pragma mark Private Method
 - (void)authenticate{
+    [self renderSpinner];
     if (_checkIn == checkInFaceBook) {
-        _fbManager = [AppManager sharedInstance].fbManager;
-        [_fbManager login:^(void){
-            [self loadLocationManager];
-        }];
+        if ([[[UIDevice currentDevice]systemVersion] hasPrefix:@"6"]) {
+            if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
+                [self loadLocationManager];
+                SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+                SLComposeViewControllerCompletionHandler myBlock = ^(SLComposeViewControllerResult result){
+                    if (result == SLComposeViewControllerResultCancelled)
+                        NSLog(@"Action cancelled!");
+                    else{
+                        [self showAlert:@"Succes!"];
+                        [self.navigationController popViewControllerAnimated:YES];
+                    }
+                    [controller dismissViewControllerAnimated:YES completion:Nil];
+                };
+                controller.completionHandler = myBlock;
+                [controller setInitialText:_textViewShout.text];
+                //            [controller addURL:[NSURL URLWithString:@"http://www.mobile.safilsunny.com"]];
+                //            [controller addImage:[UIImage imageNamed:@"fb.png"]];
+                [self presentViewController:controller animated:YES completion:Nil];
+            }
+        }
+        else if ([[[UIDevice currentDevice]systemVersion] hasPrefix:@"5"]){
+            [self renderTable];
+            _fbManager = [AppManager sharedInstance].fbManager;
+            [_fbManager login:^(void){
+                [self loadLocationManager];
+            }];
+        }
     }
     else if( _checkIn == checkInFoursqaure){
+        [self renderTable];
         _foursquare = [AppManager sharedInstance].foursquareManager;
-        [_foursquare startAuthentication:^{
-            _foursquare.delegate = self;
-            [self unrenderSpinner];
-            [self loadLocationManager];
+        [_foursquare startAuthentication:^(BOOL success){
+            if (success) {
+                _foursquare.delegate = self;
+                [self loadLocationManager];
+            }
+            else
+                [self.navigationController popToRootViewControllerAnimated:NO];
+
         }];
     }
-}
-//navigationbar left button method
-- (void)onHome{
-    self.customTabbar = [self.controllerManager getCustomTabbar];
-    [self.customTabbar onHome];
 }
 
 - (void)postCheckIn{
     //Bring the overlay in front;
     [self unrenderSpinner];
     [self renderSpinner];
-    
     if(_checkIn == checkInFoursqaure){
         //Foursquare checkin with parameters
         NSString *objectId = [_selectedPlace objectForKey:@"id"];
@@ -72,7 +97,7 @@
 }
 
 - (void)cancelCheckIn{
-
+    [self unrenderCheckInView];
 }
 
 #pragma mark Display methods
@@ -114,6 +139,7 @@
 }
 
 - (void)renderCheckInView{
+    [self renderSpinner];
     if (!_viewCheckInShout) {
         _viewCheckInShout = [[UIView alloc]init];
         _viewCheckInShout.frame = self.view.frame;
@@ -138,6 +164,7 @@
         [_viewCheckInShout addSubview:buttonCancel];
     }
     _viewCheckInShout.hidden = NO;
+    [self.view bringSubviewToFront:_viewCheckInShout];
 }
 
 - (void)unrenderCheckInView{
@@ -218,7 +245,6 @@
 
 #pragma mark Location Protocol
 - (void)_locationManagerNotification:(CLLocation *)location{
-    NSLog(@"User location found");
     NSString *coor = [NSString stringWithFormat:@"%f,%f",location.coordinate.latitude,location.coordinate.longitude];
     _currentLocation.latitude = location.coordinate.latitude;
     _currentLocation.longitude = location.coordinate.longitude;
@@ -226,16 +252,22 @@
     NSMutableDictionary *param = nil;
     //Fetch nearby places based on checkin type
     if (_checkIn == checkInFaceBook) {
-        param = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                 @"place",@"type",coor,@"center",@"1000",@"distance",
-                 nil];
-        [_fbManager getNearBy:param callback:^(id result){
-            NSLog(@"result:%@",result);
-            _listNearBy = [result objectForKey:@"data"];
+        if([[[UIDevice currentDevice]systemVersion] hasPrefix:@"6"]){
             [self updateUi];
             [self unrenderSpinner];
             [self renderNearByPlaces];
-        }];
+        }
+        else if ([[[UIDevice currentDevice]systemVersion] hasPrefix:@"5"]){
+            param = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                     @"place",@"type",coor,@"center",@"1000",@"distance",
+                     nil];
+            [_fbManager getNearBy:param callback:^(id result){
+                _listNearBy = [result objectForKey:@"data"];
+                [self updateUi];
+                [self unrenderSpinner];
+                [self renderNearByPlaces];
+            }];
+        }
     }
     else if(_checkIn == checkInFoursqaure){
         param = [NSMutableDictionary dictionaryWithObjectsAndKeys:coor, @"ll", nil];
@@ -322,7 +354,13 @@
     }
     range = [requestUrl rangeOfString:@"checkins/add"];
     if (range.location != NSNotFound) {
-        NSLog(@"Success on CHECKIN");
+            // Show the result in an alert
+            [[[UIAlertView alloc] initWithTitle:@"Result"
+                                        message:@"Success!"
+                                       delegate:self
+                              cancelButtonTitle:@"OK!"
+                              otherButtonTitles:nil]
+             show];
         [_textViewShout resignFirstResponder];
         [self unrenderCheckInView];
     }
@@ -341,19 +379,14 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self renderTable];
-    [self renderSpinner];
     if (_foursquare) {
         _foursquare.delegate = self;
     }
 }
 
-- (void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-}
-
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+    [_location removeObserver:self];
     _foursquare.delegate = nil;
 }
 

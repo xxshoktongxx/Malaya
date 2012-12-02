@@ -19,4 +19,6 @@
 @property (nonatomic, retain) DataManager *dataManager;
 
 - (void)setData:(id)data;
+/** for debug purpose only. */
+- (void)showAlert:(NSString *)text;
 @end

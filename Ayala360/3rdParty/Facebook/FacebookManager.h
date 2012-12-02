@@ -11,7 +11,6 @@
 
 @interface FacebookManager : NSObject
 @property (strong, nonatomic) FBSession *session;
-//@property (strong, nonatomic) FBSession *activeSession;
 + (FacebookManager *)sharedInstance;
 - (void)login:(void(^)(void))finish;
 - (void)logout;

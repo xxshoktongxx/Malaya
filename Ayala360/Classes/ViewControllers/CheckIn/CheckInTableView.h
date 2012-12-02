@@ -20,16 +20,16 @@ typedef enum {
     UITableView *_tableViewNearby;
     /** Hold the list of all nearby places. */
     NSArray *_listNearBy;
-    
-    /** Attributes for foursqaure */
+    /** Overlay to indicate some are process are running and prevents any user interactions. */
     UIView *_viewSpinnerContainer;
+    /** View in which message box (_textViewShot) resides. */
     UIView *_viewCheckInShout;
+    /** TextView in which user inputs message to post. */
     UITextView *_textViewShout;
     
     /** Attributes for map */
     IBOutlet MKMapView *_mapview;
     CLLocationCoordinate2D _currentLocation;
-    CLLocationCoordinate2D _tempLocation;
     NSArray *_listAnnotation;
     
     //Manager

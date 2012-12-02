@@ -38,7 +38,7 @@ typedef enum{
     /** Reference to the auth key after authentication process. */
     NSString *_tokenId;
     /** Hold a copy of callback to be excuted after authentication. */
-    void(^_callback)(void);
+    void(^_callback)(BOOL);
     /** Type of request method for specific request. */
     HTTPMethodType *httpMethodType;
     
@@ -50,13 +50,14 @@ typedef enum{
 
 //+ (Foursquare *)sharedInstance;
 /** Starts the authentication process.*/
-- (void)startAuthentication:(void(^)(void))callback;
+- (void)startAuthentication:(void(^)(BOOL))callback;
+- (BOOL)isSessionValid;
 /** Method used when making a urlRequest */
 - (void)requestWithPath:(NSString *)path methodType:(HTTPMethodType)method parameters:(NSDictionary *)parameters success:(id)success fail:(id)fail;
 
 - (void)searchVenuesWithParam:(NSDictionary *)param;
 - (void)checkinWithParam:(NSDictionary *)param;
-//- (void)addPostParam:(NSDictionary *)param;
+//- (void)addPostWithParam:(NSDictionary *)param;
 @end
 
 @protocol FoursquareDelegate <NSObject>

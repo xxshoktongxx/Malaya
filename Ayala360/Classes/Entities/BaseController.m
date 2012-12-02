@@ -29,6 +29,12 @@
     self.dataManager = [AppManager sharedInstance].dataManager;
 }
 
+- (void)showAlert:(NSString *)text{
+    if (DEBUG) {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"DEBUG MODE" message:text delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Dismis", nil];
+        [alert show];
+    }
+}
 
 - (void)dealloc{
     NSLog(@"%@ deallocated!",[self nibName]);

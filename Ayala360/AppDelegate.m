@@ -45,7 +45,6 @@
     // this is a good idea because things may be hanging off the session, that need
     // releasing (completion block, etc.) and other components in the app may be awaiting
     // close notification in order to do cleanup
-    [_fbManager.session closeAndClearTokenInformation];
     [_fbManager.session close];
 }
 

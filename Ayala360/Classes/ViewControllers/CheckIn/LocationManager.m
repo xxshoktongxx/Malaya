@@ -76,7 +76,9 @@
 }
 - (void)addObserver:(id<LocationManagerProtocol>)observer{
     if ([observer conformsToProtocol:@protocol(LocationManagerProtocol)]) {
-        [_listObservers addObject:observer];
+        if (![_listObservers containsObject:observer]) {
+            [_listObservers addObject:observer];
+        }
     }
 }
 - (void)removeObserver:(id<LocationManagerProtocol>)observer{
@@ -86,7 +88,7 @@
 }
 
 - (NSArray *)getAllObservers{
-    return [_listObservers copy];
+    return _listObservers;
 }
 
 @end

@@ -23,10 +23,10 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+//navigationbar left button method
+- (void)onHome{
+    self.customTabbar = [self.controllerManager getCustomTabbar];
+    [self.customTabbar onHome];
 }
 
 
@@ -40,5 +40,18 @@
     [self.navigationController pushViewController:_controller animated:YES];
 }
 
+
+- (void)viewDidAppear:(BOOL)animated{
+    UIImage *buttonImage = [UIImage imageNamed:@"buttonNavigationBack.png"];
+	UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+	[backButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
+	[backButton setTitle:@"Home" forState:UIControlStateNormal];
+	backButton.titleLabel.font = [UIFont boldSystemFontOfSize:12];
+	backButton.frame = CGRectMake(0, 0, buttonImage.size.width, buttonImage.size.height);
+	[backButton addTarget:self action:@selector(onHome) forControlEvents:UIControlEventTouchUpInside];
+    
+	UIBarButtonItem *btnBack = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    self.navigationItem.leftBarButtonItem = btnBack;
+}
 
 @end

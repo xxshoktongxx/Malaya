@@ -12,11 +12,10 @@
 #import "MallDetailMenu.h"
 #import "CustomTabbar.h"
 #import "MapViewController.h"
-#import "SocialShare.h"
+#import "SocialShareController.h"
 #import "CheckInTableView.h"
 #import "FavoritesController.h"
 #import "CheckInController.h"
-#import "CheckInFacebookTable.h"
 
 @implementation ViewControllerManager
 
@@ -56,7 +55,7 @@
 - (UINavigationController *)getMenuWithNavWithType:(MenuType)type{
     switch (type) {
         case menuTypeSocialShare:
-            _menu = [[SocialShare alloc]initWithNibName:@"SocialShare" bundle:nil];
+            _menu = [[SocialShareController alloc]initWithNibName:@"SocialShareController" bundle:nil];
             _navigationController = [[UINavigationController alloc]initWithRootViewController:_menu];
             break;
         case menuTypeMallDetailMenu:
